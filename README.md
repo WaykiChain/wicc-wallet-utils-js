@@ -1,8 +1,8 @@
 # wicc-webwallet-utils
-JS library for Offline Wallet functionalities
+Official JavaScript library that provides WICC Offline Wallet capabilities
 
 ## Key Functions
- * Generation of mnemonic phrase, private-public key pair and WICC mainnet/testnet address
- * Offline Sign Registration Transaction
- * Offline Sign WICC coin transfer to a target WICC address
- * Offline Sign Delegate Vote Transaction
+ * Generate mnemonic phrase, private-public key pair and WICC addresses for mainnet/testnet
+ * Offline sign registration transaction for newly created WICC addresses
+ * Offline sign WICC coin transfer transactions
+ * Offline sign delegate vote transactions
