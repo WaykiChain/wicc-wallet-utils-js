@@ -6,3 +6,5 @@ Official JavaScript library that provides WICC Offline Wallet capabilities
  * Offline sign registration transaction for newly created WICC addresses
  * Offline sign WICC coin transfer transactions
  * Offline sign delegate vote transactions
+ * Offline sign contract Lua Script deployment transactions
+ * Offline sign contract invocation transactions
