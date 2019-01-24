@@ -198,6 +198,7 @@ var reginfo = {
   };
 
 var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.REGISTER_ACCOUNT_TX, reginfo)
+console.log("test createSignTrasaction: ")
 console.log(rawtx)
 
 var walletinfo = wiccApi.createWallet(strMne, '12345678')
@@ -205,6 +206,7 @@ console.log(walletinfo)
 
 
 var pri = wiccApi.getPriKeyFromSeed(walletinfo.seedinfo, '12345678')
+console.log("test getPriKeyFromSeed:")
 console.log(pri)
 
 var privateKey = bitcore.PrivateKey.fromWIF(pri)
