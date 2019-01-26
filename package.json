@@ -8,7 +8,7 @@
     "lint": "gulp lint",
     "test": "gulp test",
     "coverage": "gulp coverage",
-    "build": "gulp"
+    "build": "gulp browser"
   },
   "keywords": [
     "bitcoin",
@@ -48,10 +48,13 @@
     "unorm": "^1.4.1"
   },
   "devDependencies": {
-    "bitcore-build": "https://github.com/bitpay/bitcore-build.git#d4e8b2b2f1e2c065c3a807dcb6a6250f61d67ab3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "bitcore-build": "https://github.com/pengandpeng/bitcore-build.git#master",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",
+    "gulp-babel": "^8.0.0",
     "gulp-useref": "^3.1.5",
     "sinon": "^1.13.0"
   },
