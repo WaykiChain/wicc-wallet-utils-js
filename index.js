@@ -40,6 +40,7 @@ bitcore.util.preconditions = require('./lib/util/preconditions');
 bitcore.util.util = require('./lib/util/util')
 bitcore.util.BetItem = require('./lib/util/betitem')
 bitcore.util.VoteFund = require('./lib/util/votefund')
+bitcore.util.WriterHelper = require('./lib/util/writerhelper');
 
 // errors thrown by the library
 bitcore.errors = require('./lib/errors');

@@ -2,12 +2,17 @@
 
 // usage: node test-registerapptx.js
 
-var _ = require('lodash');
 var bitcore = require('..');
+
 var fs = require("fs")
+
 
 //var privateKey = new bitcore.PrivateKey(null, 'testnet');
 var privateKey = bitcore.PrivateKey.fromWIF('Y8JhshTg5j2jeTrwk3qBJDYGi5MVsAvfBJRgFfAp14T91UY9AHgZ')
+var address = privateKey.toAddress();
+var publicKey = privateKey.toPublicKey();
+
+
 
 var arg = {network: 'testnet'}
 var wiccApi = new bitcore.WiccApi(arg)
@@ -16,21 +21,35 @@ var script = fs.readFileSync(__dirname + '/data/contract-hello.lua');
 //console.log("load script file:")
 //console.log(script);
 
-console.log(_.isString(script))
-console.log(_.isArray(script))
-console.log(_.isArrayBuffer(script))
-console.log(_.isBuffer(script))
+
 
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
 var regAppInfo = {
-    nTxType: bitcore.WiccApi.REG_APP_TX,
-    nVersion: 1,
-    nValidHeight: 34400,
-    regAcctId: "22030-2",
-    script: script,
-    scriptDesc: "",
-    fees: 110000000,
-  };
+  nTxType: bitcore.WiccApi.CONTRACT_TX,
+  nVersion: 1,
+  nValidHeight: 34400,        // create height
+  srcRegId: "22030-2",    // sender's regId
+  destRegId: "24555-1",  // app regId
+  fees: 1000000,         // fees pay for miner
+  value: 8,              // amount of WICC to be sent to the app account
+  vContract: "f018"
+};
+
+var str=regAppInfo.vContract
+var all = parseInt("0x" + str)
+console.log("all="+all)
+var a = parseInt("0x" + str.substr(0, 2))
+var b = parseInt("0x" + str.substr(2, 2))
+console.log("ab = " +a+""+b)
+
+/*
+  "1.\"senderaddr\": (string, required)\n tx sender's base58 addr\n"
+  "2.\"appregid\":(string, required) the app RegId\n"
+  "3.\"amount\":(numeric, required)\n amount of WICC to be sent to the app account\n"
+  "4.\"contract\": (string, required) contract method invoke content (Hex encode required)\n"
+  "5.\"fee\": (numeric, required) pay to miner\n"
+  "6.\"height\": (numeric, optional)create height,If not provide use the tip block hegiht in chainActive\n"
+*/
 
 /*  
 {
@@ -68,12 +87,12 @@ console.log("wicc private key:")
 console.log(wiccPrivateKey)
 
 var privateKey = bitcore.PrivateKey.fromWIF(wiccPrivateKey)
-console.log("get private key:")
-console.log(privateKey)
+//console.log("get private key:")
+//console.log(privateKey)
 var address = privateKey.toAddress();
 console.log("get address:")
 console.log(address.toString())
 
-var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.REG_APP_TX, regAppInfo)
-console.log("reg app tx raw: ")
+var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.CONTRACT_TX, regAppInfo)
+console.log("contract tx raw: ")
 console.log(rawtx)
