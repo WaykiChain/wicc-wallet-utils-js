@@ -182,6 +182,16 @@ var wiccApi = new bitcore.WiccApi(arg)
 var strMne = wiccApi.createAllCoinMnemonicCode()
 console.log(strMne)
 
+var begin1 = new Date().getTime();
+var priKey = wiccApi.getPriKeyFromMnemonicCode(strMne)//计算耗时
+var end1 = new Date().getTime();
+console.log('耗时：'+(end1-begin1),'priKey:'+priKey);
+
+var begin2 = new Date().getTime();
+var addressFromMn = wiccApi.getAddressFromMnemonicCode(strMne)//计算耗时
+var end2 = new Date().getTime();
+console.log('耗时：'+(end2-begin2),'addressFromMn:'+addressFromMn)
+
 var ret = wiccApi.checkMnemonicCode(strMne)
 console.log(ret)
 
@@ -201,13 +211,16 @@ var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.REGISTER_A
 console.log("test createSignTrasaction: ")
 console.log(rawtx)
 
-var walletinfo = wiccApi.createWallet(strMne, '12345678')
-console.log(walletinfo)
+var begin3 = new Date().getTime();
+var walletinfo = wiccApi.createWallet(strMne, '12345678')//计算耗时
+var end3 = new Date().getTime();
+console.log('耗时：'+(end3-begin3),'walletinfo:'+walletinfo)
 
-
-var pri = wiccApi.getPriKeyFromSeed(walletinfo.seedinfo, '12345678')
-console.log("test getPriKeyFromSeed:")
-console.log(pri)
+var begin4 = new Date().getTime();
+var pri = wiccApi.getPriKeyFromSeed(walletinfo.seedinfo, '12345678')//计算耗时
+var end4 = new Date().getTime();
+console.log('耗时：'+(end4-begin4))
+console.log("test getPriKeyFromSeed:"+pri)
 
 var privateKey = bitcore.PrivateKey.fromWIF(pri)
 var address = privateKey.toAddress();
