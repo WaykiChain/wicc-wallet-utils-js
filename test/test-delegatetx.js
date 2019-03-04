@@ -15,27 +15,27 @@ publicKey can get from "getaccountinfo" cmd if the account have registered
 var delegateData = [ // array,  item is object data of delegate
   {
     // address: 'waFdYrQfDSsh1jVsDzPiutAPUKCHZJ4Wyp'
-    publicKey: Buffer.from("02e5ee9bd73c561fc9844fc3065c87d297f6ba52f64f409346a4bb5035f2de25ab", 'hex'),
-    votes: 2000001
-  },
-  {
+    // publicKey: Buffer.from("02e5ee9bd73c561fc9844fc3065c87d297f6ba52f64f409346a4bb5035f2de25ab", 'hex'),
+    publicKey: "0369e834a7e5708d4c94b098447fbead8213c679cf4a37b953bfed28af104239d3",
+    votes: 201
+  },{
     // address: 'wQsRcb6VcSr9DnpaLiWwrSA6YPuaUMbbYw'
-    publicKey: Buffer.from("03b05d123a496430f321e8f6ef7d4419c39fd3745f0aa60c0d9b54adcfff1e7ab4", 'hex'),
-    votes: 2000002
-  },
+    publicKey: "02dc40112e2e12106c749c5bee34b4037b2dff4cd300ee5a57948961a6c9441e27",
+    votes: 202
+  }
 ]
 
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
 var regAppInfo = {
   nTxType: bitcore.WiccApi.DELEGATE_TX,
   nVersion: 1,
-  nValidHeight: 53890, // create height
-  srcRegId: "44483-1", // sender's regId
+  nValidHeight: 28128, // create height
+  srcRegId: "28121-3", // sender's regId
   delegateData: delegateData,
   fees: 1001, // fees pay for miner
 };
 
-var wiccPrivateKey = 'Y7Mn3ieAgweoaTfkH3Y3LKsD6BNAwbKVM42SERFycA22uufVMNfj'
+var wiccPrivateKey = 'YCnMXzTmEbvjMHA8zLHA8ratHH5noPdFEENKfYPa2uVLcmL3wb6H'
 console.log("wicc private key:")
 console.log(wiccPrivateKey)
 
