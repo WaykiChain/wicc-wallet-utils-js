@@ -19,7 +19,7 @@ var commonTxinfo = {
     fees: 10000,
     srcRegId: '54528-1',
     destAddr: 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65',
-    value: 1.01,
+    value:32432,
     network: 'testnet'
   };
 
