@@ -1,8 +1,8 @@
 {
-  "name": "bitcore-lib",
+  "name": "wicc-wallet-lib",
   "version": "0.15.0",
-  "description": "A pure and powerful JavaScript Bitcoin library.",
-  "author": "BitPay <dev@bitpay.com>",
+  "description": "A pure and powerful JavaScript Wicc Wallet library.",
+  "author": "coredev@waykichainhk.com",
   "main": "index.js",
   "scripts": {
     "lint": "gulp lint",
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "bitcore-build": "https://github.com/pengandpeng/bitcore-build.git#master",
+    "bitcore-build": "https://github.com/WaykiChain/wicc-wallet-utils-js.git",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",

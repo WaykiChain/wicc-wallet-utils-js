@@ -1,4 +1,4 @@
-# wicc-webwallet-utils
+# wicc-wallet-utils-js
 Official JavaScript library that provides WICC Offline Wallet capabilities
 
 ## Key Functions
@@ -12,21 +12,19 @@ Official JavaScript library that provides WICC Offline Wallet capabilities
 ## Get Started
 
 ```
-npm install bitcore-lib
+npm install wicc-wallet-lib
 ```
 
 ```
-bower install bitcore-lib
+bower install wicc-wallet-lib
 ```
 
 ## Documentation
 
-The complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.
+The complete docs are hosted here: [WaykiChain Developer Documentation](https://www.wiccdev.org/book/index.html). 
 
-- [Read the Developer Guide](http://bitcore.io/guide/)
-- [Read the API Reference](http://bitcore.io/api/)
 
-To get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).
+To get community assistance and ask for help with implementation questions, please contact us our (telegram group: https://t.me/waykichaindeveng, wechat ID: wjlT2D2).
 
 ## Examples
 
@@ -73,8 +71,8 @@ To verify signatures, use the following PGP keys:
 ## Development & Tests
 
 ```sh
-git clone https://github.com/bitpay/bitcore-lib
-cd bitcore-lib
+git clone https://github.com/WaykiChain/wicc-wallet-utils-js.git
+cd wicc-wallet-utils-js
 npm install
 ```
 
@@ -89,6 +87,6 @@ or create a test coverage report (you can open `coverage/lcov-report/index.html`
 
 ## License
 
-Code released under [the MIT license](https://github.com/bitpay/bitcore-lib/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/WaykiChain/wicc-wallet-utils-js/blob/master/LICENSE).
 
-Copyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.
+Copyright 2017-2019 WaykiChain, Inc. 
