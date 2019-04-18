@@ -1,6 +1,6 @@
 {
   "name": "wicc-wallet-lib",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A pure and powerful JavaScript Wicc Wallet library.",
   "author": "coredev@waykichainhk.com",
   "main": "index.js",
