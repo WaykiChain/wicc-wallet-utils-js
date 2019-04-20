@@ -9,7 +9,7 @@ Official JavaScript library that provides WICC Offline Wallet capabilities
 ### Offline sign WICC coin transfer transactions
 [Example](./test/test-commontx.js)
 ### Offline sign contract Lua Script deployment transactions
-[Example](./test/test-registercontractjs.js)
+[Example](./test/test-registercontracttx.js)
 ### Offline sign contract calling transactions
 [Example](./test/test-callcontracttx.js)
 ### Offline sign delegate vote transactions
