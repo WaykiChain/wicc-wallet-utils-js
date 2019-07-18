@@ -75,5 +75,11 @@ bitcore.Transaction.RegisterAccountTx = require('./lib/transaction/registeraccou
 bitcore.Transaction.CommonTx = require('./lib/transaction/commontx')
 bitcore.Transaction.ContractTx = require('./lib/transaction/contracttx')
 bitcore.Transaction.DelegateTx = require('./lib/transaction/delegatetx')
+
+bitcore.Transaction.CdpStakeTx = require('./lib/transaction/cdpstaketx')
+bitcore.Transaction.FeedPriceTx = require('./lib/transaction/cpricefeedtx')
+bitcore.Transaction.CdpLiquiDateTx = require('./lib/transaction/cdpliquidatetx')
+bitcore.Transaction.CFcoinStakeTx = require('./lib/transaction/cfcoinstaketx')
+bitcore.Transaction.CdpRedeemTx = require('./lib/transaction/cdpredeemtx')
 bitcore.Mnemonic = require('./lib/mnemonic');
 bitcore.WiccApi = require('./lib/wiccapi')
