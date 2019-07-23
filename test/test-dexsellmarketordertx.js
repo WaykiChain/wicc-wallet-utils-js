@@ -5,22 +5,15 @@ var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
-var arg = {network: 'testnet'}
-var wiccApi = new bitcore.WiccApi(arg)
-
-// 验证地址
-var ret = wiccApi.validateAddress('wLKf2NqwtHk3BfzK5wMDfbKYN1SC3weyR4')
-console.log(ret)
-
 /*
-Build a transaction for common transfer
+Build a transaction for sell limit transfer
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
 2, fees: handling fee when deploying a smart contract, >= 10000 sawi (0.0001 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 */
 /*
-构建普通转账交易的交易单
+构建限价卖单交易的交易单
 注意：
 1、nValidHeight:创建签名时的区块高度,与提交广播交易时的高度差必须 <=250
 2、fees:发布合约时的手续费, >= 10000 sawi(0.0001 wicc)
@@ -38,20 +31,7 @@ var dexSellMarketTxinfo = {
     network: 'testnet'
   };
 
-  var value = 10000000000
-  var tmp = (value >>> 7)
-
-
   var dexSellMarketOrderTx = new bitcore.Transaction.DexSellMarketOrderTx(dexSellMarketTxinfo);
-  console.log(dexSellMarketOrderTx.destAddr)
-
-  /*
-    var ret = commonTx._SignatureHash()
-  var ret = commonTx._SignatureHash()
-  console.log(ret.toString('hex'))
-
-  commonTx._Signtx(privateKey);
-  */
 
   var hex = dexSellMarketOrderTx.SerializeTx(privateKey)
   console.log(hex)

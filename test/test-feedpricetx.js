@@ -4,15 +4,11 @@
 
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
-var arg = {
-  network: 'testnet'
-}
+
+var arg = {network: 'testnet'}
 var wiccApi = new bitcore.WiccApi(arg)
 
-/*
-publicKey can get from "getaccountinfo" cmd if the account have registered
-*/
-var feedPriceData = [ // array,  item is object data of delegate
+var feedPriceData = [ 
   {
     coinPriceType: {
       coinType:WriterHelper.prototype.CoinType.WICC,
