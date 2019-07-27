@@ -9,12 +9,11 @@ var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B
 Build a transaction for cdp liquidate transaction
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when deploying a smart contract, >= 10000 sawi (0.0001 wicc)
+2, fees: handling fee when deploying a smart contract, >= 100000 sawi (0.001 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4. cdpOwnerRegId: reg of the cdp creator
 5. cdpTxId: the transaction hash created by the cdp
 6. scoinsToLiquidate: the number of liquidation
-7. scoinsPenalty: a fine for the stable currency (WUSD)
 */
 /*
 构建cdp清算交易
@@ -25,18 +24,15 @@ note:
 4、cdpOwnerRegId:cdp创建者的regid
 5、cdpTxId:该cdp的创建的交易hash
 6、scoinsToLiquidate:清算的数量
-7、scoinsPenalty:稳定币（WUSD）的罚款
 */
 var cdpliquidateTxinfo = {
     nTxType: bitcore.WiccApi.CDP_LIQUIDATE_TX,
     nVersion: 1,
-    nValidHeight: 23594,
+    nValidHeight: 501,
     txUid:"0-1",
     fees: 100000,
-    cdpOwnerRegId:"0-1",
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
     scoinsToLiquidate: 2000000000000,
-    scoinsPenalty: 7000000,
     network: 'testnet'
   };
 
