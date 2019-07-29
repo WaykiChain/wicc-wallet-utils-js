@@ -2,7 +2,7 @@
 
 // const express = require("express");
 var bitcore = require('..');
-
+var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
 var arg = {network: 'testnet'}
@@ -21,6 +21,7 @@ note:
 4, cdpTxId: hash created by cdp
 5, bcoinsToStake: the number of wicc (Minimum 1WICC)
 6, collateralRatio: Number of wusd
+7, fee_symbol: fee type (WICC/WUSD)
 */
 /*
 构建cdp抵押交易
@@ -31,6 +32,7 @@ note:
 4、cdpTxId:cdp创建生成的交易hash
 5、bcoinsToStake:抵押的数量(最低1WICC)
 6、scoinsToMint:获得的wusd
+7、fee_symbol:小费类型（WICC/WUSD）
 */
 var cdpStakeTxinfo = {
     nTxType: bitcore.WiccApi.CDP_STAKE_TX,
@@ -38,6 +40,7 @@ var cdpStakeTxinfo = {
     nValidHeight: 23594,
     txUid:"0-1",
     fees: 100000,
+    fee_symbol:WriterHelper.prototype.CoinType.WICC,
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
     bcoinsToStake: 2000000000,
     scoinsToMint: 3000000,

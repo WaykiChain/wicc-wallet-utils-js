@@ -2,7 +2,7 @@
 
 // const express = require("express");
 var bitcore = require('..');
-
+var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
 /*
@@ -14,6 +14,7 @@ note:
 4, cdpTxId: cdp transaction hash
 5, scoins_to_repay: the number of destroyed wusd
 6, bcoins_to_redeem: the number of WICC
+7, fee_symbol: fee type (WICC/WUSD)
 */
 /*
 构建cdp赎回的交易
@@ -24,6 +25,7 @@ note:
 4、cdpTxId:cdp交易hash
 5、scoins_to_repay:销毁的wusd数量
 6、bcoins_to_redeem:赎回的数量
+7、fee_symbol:小费类型（WICC/WUSD）
 */
 var cdpRedeemTxinfo = {
     nTxType: bitcore.WiccApi.CDP_REDEEMP_TX,
@@ -32,6 +34,7 @@ var cdpRedeemTxinfo = {
     txUid:"0-1",
     fees: 100000,
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
+    fee_symbol:WriterHelper.prototype.CoinType.WICC,
     scoins_to_repay: 2000000000000,
     bcoins_to_redeem: 7000000,
     network: 'testnet'

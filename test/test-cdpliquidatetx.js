@@ -2,7 +2,7 @@
 
 // const express = require("express");
 var bitcore = require('..');
-
+var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
 /*
@@ -14,6 +14,7 @@ note:
 4. cdpOwnerRegId: reg of the cdp creator
 5. cdpTxId: the transaction hash created by the cdp
 6. scoinsToLiquidate: the number of liquidation
+7, fee_symbol: fee type (WICC/WUSD)
 */
 /*
 构建cdp清算交易
@@ -24,6 +25,7 @@ note:
 4、cdpOwnerRegId:cdp创建者的regid
 5、cdpTxId:该cdp的创建的交易hash
 6、scoinsToLiquidate:清算的数量
+7、fee_symbol:小费类型（WICC/WUSD）
 */
 var cdpliquidateTxinfo = {
     nTxType: bitcore.WiccApi.CDP_LIQUIDATE_TX,
@@ -31,6 +33,7 @@ var cdpliquidateTxinfo = {
     nValidHeight: 501,
     txUid:"0-1",
     fees: 100000,
+    fee_symbol:WriterHelper.prototype.CoinType.WICC,
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
     scoinsToLiquidate: 2000000000000,
     network: 'testnet'
