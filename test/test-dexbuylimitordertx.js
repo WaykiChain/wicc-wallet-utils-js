@@ -33,6 +33,7 @@ var dexBuyLimitTxinfo = {
     nValidHeight: 5360,
     fees: 10000,
     srcRegId: '0-1',
+    feeSymbol: WriterHelper.prototype.CoinType.WICC,
     coinType: WriterHelper.prototype.CoinType.WICC,
     assetType:WriterHelper.prototype.CoinType.WUSD,
     assetAmount:10,

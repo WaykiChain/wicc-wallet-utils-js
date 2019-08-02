@@ -1,6 +1,7 @@
 'use strict'
 
 var bitcore = require('..');
+var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 /*
 Build a transaction for cancel order transfer
@@ -23,6 +24,7 @@ var dexCancelTxinfo = {
     nVersion: 1,
     nValidHeight: 5360,
     fees: 10000,
+    feeSymbol: WriterHelper.prototype.CoinType.WICC,
     srcRegId: '0-1',
     orderId: '009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144',
     network: 'testnet'

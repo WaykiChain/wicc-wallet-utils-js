@@ -31,6 +31,7 @@ var dexBuyMarketTxinfo = {
     nValidHeight: 5360,
     fees: 10000,
     srcRegId: '0-1',
+    feeSymbol: WriterHelper.prototype.CoinType.WICC,
     coinType: WriterHelper.prototype.CoinType.WUSD,
     assetType:WriterHelper.prototype.CoinType.WICC,
     coinAmount:200,

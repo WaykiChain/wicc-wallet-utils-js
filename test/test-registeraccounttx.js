@@ -8,7 +8,7 @@ var wiccApi = new bitcore.WiccApi(arg)
 
 //import private key
 //引入私钥
-var privateKey = bitcore.PrivateKey.fromWIF('YA78W4B4T2UveRCSo4Z6iYTZfjK3z9LMmK6YxRYJyLzoaR77Ss1Z')
+var privateKey = bitcore.PrivateKey.fromWIF('Y5Lrutj2nJmmCVJ9hmTmNyASJxUACu9b8djoobrHmoGye3uhXnrb')
 var publicKey = privateKey.toPublicKey();
 
 /*
@@ -28,7 +28,7 @@ note:
 var registeraccounttxInfo = {
     nTxType: 2,         //REGISTER_ACCOUNT_TX
     nVersion: 1,
-    nValidHeight: 219831,  
+    nValidHeight: 34632,  
     fees: 10000,
     pubkey: publicKey.toString(),
     minerPubkey: ''

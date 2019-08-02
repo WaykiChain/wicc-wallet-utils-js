@@ -30,7 +30,7 @@ note:
 var cdpRedeemTxinfo = {
     nTxType: bitcore.WiccApi.CDP_REDEEMP_TX,
     nVersion: 1,
-    nValidHeight: 23594,
+    nValidHeight: 78,
     txUid:"0-1",
     fees: 100000,
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",

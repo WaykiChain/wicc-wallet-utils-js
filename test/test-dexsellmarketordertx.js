@@ -25,6 +25,7 @@ var dexSellMarketTxinfo = {
     nValidHeight: 602371,
     fees: 10000,
     srcRegId: '54528-1',
+    feeSymbol: WriterHelper.prototype.CoinType.WICC,
     coinType: WriterHelper.prototype.CoinType.WICC,
     assetType:WriterHelper.prototype.CoinType.WUSD,
     assetAmount:30000000000,

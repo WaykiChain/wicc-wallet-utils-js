@@ -3,7 +3,7 @@
 // const express = require("express");
 var bitcore = require('..');
 
-var privateKey = bitcore.PrivateKey.fromWIF('Y8JhshTg5j2jeTrwk3qBJDYGi5MVsAvfBJRgFfAp14T91UY9AHgZ')
+var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
 var arg = {network: 'testnet'}
 var wiccApi = new bitcore.WiccApi(arg)
@@ -29,11 +29,11 @@ note:
 var commonTxinfo = {
     nTxType: 3,
     nVersion: 1,
-    nValidHeight: 602371,
+    nValidHeight: 34550,
     fees: 10000,
-    srcRegId: '54528-1',
-    destAddr: 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65',
-    value:32432,
+    srcRegId: '0-1',
+    destAddr: 'wWTStcDL4gma6kPziyHhFGAP6xUzKpA5if',
+    value:1100000000000,
     network: 'testnet'
   };
 

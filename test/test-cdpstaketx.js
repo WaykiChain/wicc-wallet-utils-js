@@ -37,11 +37,11 @@ note:
 var cdpStakeTxinfo = {
     nTxType: bitcore.WiccApi.CDP_STAKE_TX,
     nVersion: 1,
-    nValidHeight: 23594,
+    nValidHeight: 25,
     txUid:"0-1",
     fees: 100000,
     fee_symbol:WriterHelper.prototype.CoinType.WICC,
-    cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
+    cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
     bcoinsToStake: 2000000000,
     scoinsToMint: 3000000,
     network: 'testnet'
