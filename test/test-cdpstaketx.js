@@ -33,6 +33,8 @@ note:
 5、bcoinsToStake:抵押的数量(最低1WICC)
 6、scoinsToMint:获得的wusd
 7、fee_symbol:小费类型（WICC/WUSD）
+8、bcoin_symbol:抵押币种
+9、coin_symbol:获得币种
 */
 var cdpStakeTxinfo = {
     nTxType: bitcore.WiccApi.CDP_STAKE_TX,
@@ -42,6 +44,8 @@ var cdpStakeTxinfo = {
     fees: 100000,
     fee_symbol:WriterHelper.prototype.CoinType.WICC,
     cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
+    bcoin_symbol:WriterHelper.prototype.CoinType.WICC,
+    scoin_symbol:WriterHelper.prototype.CoinType.WUSD,
     bcoinsToStake: 2000000000,
     scoinsToMint: 3000000,
     network: 'testnet'

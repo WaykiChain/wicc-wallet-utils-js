@@ -2,7 +2,7 @@
 
 // const express = require("express");
 var bitcore = require('..');
-
+var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
 var arg = {network: 'testnet'}
@@ -36,6 +36,8 @@ var fcoinStakeTxinfo = {
     nValidHeight: 23594,
     txUid:"0-1",
     fees: 100000,
+    feeSymbol:WriterHelper.prototype.CoinType.WICC,
+    stakeType:WriterHelper.prototype.BalanceOpType.ADD_FREE,
     fcoinsToStake: 2000000000000,
     network: 'testnet'
   };
