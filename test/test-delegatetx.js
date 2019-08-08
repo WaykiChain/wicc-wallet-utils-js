@@ -30,8 +30,9 @@ var regAppInfo = {
   nTxType: bitcore.WiccApi.DELEGATE_TX,
   nVersion: 1,
   nValidHeight: 28128, // create height
-  srcRegId: "28121-3", // sender's regId
+  srcRegId: "", // sender's regId
   delegateData: delegateData,
+  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
   fees: 1001, // fees pay for miner
 };
 

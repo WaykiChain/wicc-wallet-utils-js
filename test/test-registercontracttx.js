@@ -37,7 +37,8 @@ var regAppInfo = {
     nTxType: bitcore.WiccApi.REG_APP_TX,
     nVersion: 1,
     nValidHeight: 34400,       // create height
-    regAcctId: "22030-2",      // sender's regId
+    regAcctId: "",      // sender's regId
+    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     script: script,            // contract scrypt content, string or buf
     scriptDesc: "",            // contract scrypt description, string or buf
     fees: 110000000,           // fees pay for miner

@@ -25,7 +25,8 @@ var regAppInfo = {
   nTxType: bitcore.WiccApi.CONTRACT_TX,
   nVersion: 1,
   nValidHeight: 34400,    // create height
-  srcRegId: "22030-2",    // sender's regId
+  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  srcRegId: '',    // sender's regId
   destRegId: "24555-1",  // app regId
   fees: 1000000,         // fees pay for miner
   value: 8,              // amount of WICC to be sent to the app account

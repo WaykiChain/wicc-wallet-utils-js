@@ -30,6 +30,7 @@ var commonTxinfo = {
     nTxType: 3,
     nVersion: 1,
     nValidHeight: 34550,
+    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     fees: 10000,
     srcRegId: '0-1',
     destAddr: 'wWTStcDL4gma6kPziyHhFGAP6xUzKpA5if',

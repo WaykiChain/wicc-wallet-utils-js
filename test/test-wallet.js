@@ -41,8 +41,9 @@ console.log("Get MnemonicCode from wallet seed="+Mne)
 //Get an address based on the WIF format private key. Note: privateKey2 and privateKey1 are equal.
 //根据WIF格式私钥获取地址 ,注意：privateKey2 和 privateKey1 是一样的
 var privateKey = bitcore.PrivateKey.fromWIF(privateKey2)
+var pubKey=privateKey.toPublicKey();
 var address = privateKey.toAddress();
-console.log("New Create address="+address.toString())
+console.log("New Create publicKey="+pubKey,"New Create address="+address.toString())
 
 //Check if the address is valid
 //检查地址是否有效

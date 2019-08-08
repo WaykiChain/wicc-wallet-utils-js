@@ -34,10 +34,11 @@ var fcoinStakeTxinfo = {
     nTxType: bitcore.WiccApi.FCOIN_STAKE_TX,
     nVersion: 1,
     nValidHeight: 23594,
-    txUid:"0-1",
+    txUid:"",
     fees: 100000,
     feeSymbol:WriterHelper.prototype.CoinType.WICC,
     stakeType:WriterHelper.prototype.BalanceOpType.ADD_FREE,
+    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     fcoinsToStake: 2000000000000,
     network: 'testnet'
   };

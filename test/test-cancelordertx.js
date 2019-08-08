@@ -25,7 +25,8 @@ var dexCancelTxinfo = {
     nValidHeight: 5360,
     fees: 10000,
     feeSymbol: WriterHelper.prototype.CoinType.WICC,
-    srcRegId: '0-1',
+    srcRegId: '',
+    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     orderId: '009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144',
     network: 'testnet'
   };
