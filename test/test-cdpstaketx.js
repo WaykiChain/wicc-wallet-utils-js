@@ -48,7 +48,7 @@ var cdpStakeTxinfo = {
     bcoin_symbol:WriterHelper.prototype.CoinType.WICC,
     scoin_symbol:WriterHelper.prototype.CoinType.WUSD,
     bcoinsToStake: 2000000000,
-    scoinsToMint: 3000000,
+    scoinsToMint: 0,
     network: 'testnet'
   };
 
