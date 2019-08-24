@@ -35,8 +35,8 @@ var dexBuyLimitTxinfo = {
     srcRegId: '',
     publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     feeSymbol: WriterHelper.prototype.CoinType.WICC,
-    coinType: WriterHelper.prototype.CoinType.WICC,
-    assetType:WriterHelper.prototype.CoinType.WUSD,
+    coinSymbol: WriterHelper.prototype.CoinType.WUSD,
+    assetSymbol:WriterHelper.prototype.CoinType.WICC,
     assetAmount:10,
     bidPrice:200,
     network: 'testnet'
