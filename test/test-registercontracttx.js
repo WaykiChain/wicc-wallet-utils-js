@@ -38,9 +38,8 @@ var regAppInfo = {
     nVersion: 1,
     nValidHeight: 110482,       // create height
     regAcctId: "0-1",      // sender's regId
-   // publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     script: script,            // contract scrypt content, string or buf
-    scriptDesc: "",            // contract scrypt description, string or buf
+    scriptDesc: "test contract",            // contract scrypt description, string or buf
     fees: 4200000000,           // fees pay for miner
   };
 
