@@ -32,7 +32,7 @@ var dexBuyLimitTxinfo = {
     nVersion: 1,
     nValidHeight: 5360,
     fees: 10000,
-    srcRegId: '',
+    srcRegId: '0-1',
     publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     feeSymbol: WriterHelper.prototype.CoinType.WICC,
     coinSymbol: WriterHelper.prototype.CoinType.WUSD,
