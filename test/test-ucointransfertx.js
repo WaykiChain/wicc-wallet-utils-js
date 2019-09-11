@@ -36,7 +36,7 @@ var cointransferTxinfo = {
     destAddr: 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65',
     value:32432,
     publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    memo:"转账",
+    memo:"test transfer",
     coinType:WriterHelper.prototype.CoinType.WUSD,
     feesCoinType:WriterHelper.prototype.CoinType.WICC,
     network: 'testnet'
