@@ -1,6 +1,6 @@
 'use strict';
 
-// usage: node test-contracttx.js
+// usage: node test-assetcreatetx.js
 
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
@@ -10,11 +10,11 @@ var arg = {
 var wiccApi = new bitcore.WiccApi(arg)
 
 var assetData = {
-  tokenSymbol: "STM",
-   ownerRegid: "0-1",
-   tokeName:"Simon Token",
-   totalSupply:10000000000000000,//
-   minTable:false//
+  tokenSymbol: "ST",   //asset Symbol Capital letter A-Z 1-7 digits [A_Z]
+   ownerRegid: "0-1",  //asset owner
+   tokeName:"SS Token",  //asset token name
+   totalSupply:10000000000000000,// total Supply 10^8
+   minTable:false    //Whether to increase the number
   }
 
 
