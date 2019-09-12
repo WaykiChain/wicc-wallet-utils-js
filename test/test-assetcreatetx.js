@@ -11,7 +11,7 @@ var wiccApi = new bitcore.WiccApi(arg)
 
 var assetData = {
   tokenSymbol: "ST",   //asset Symbol Capital letter A-Z 1-7 digits [A_Z]
-   ownerRegid: "0-1",  //asset owner
+   ownerAddress: "wLKf2NqwtHk3BfzK5wMDfbKYN1SC3weyR4",  //asset owner
    tokeName:"SS Token",  //asset token name
    totalSupply:10000000000000000,// total Supply 10^8
    minTable:false    //Whether to increase the number

@@ -35,6 +35,7 @@ var commonTxinfo = {
     srcRegId: '0-1',
     destAddr: 'wWTStcDL4gma6kPziyHhFGAP6xUzKpA5if',
     value:1100000000000,
+    memo:"test transfer",
     network: 'testnet'
   };
 
