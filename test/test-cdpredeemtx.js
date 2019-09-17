@@ -27,6 +27,7 @@ note:
 6、bcoins_to_redeem:赎回的数量
 7、fee_symbol:小费类型（WICC/WUSD）
 */
+var map=new Map([[WriterHelper.prototype.CoinType.WICC,100000000]])
 var cdpRedeemTxinfo = {
     nTxType: bitcore.WiccApi.CDP_REDEEMP_TX,
     nVersion: 1,
@@ -37,7 +38,7 @@ var cdpRedeemTxinfo = {
     publicKey:"03af0341d7470d6e02687bec8920dbfba83544571a71f1cd6ef487c7fd88768c01",
     fee_symbol:WriterHelper.prototype.CoinType.WICC,
     scoins_to_repay: 0,
-    bcoins_to_redeem: 0,
+    assetMap: map,
     network: 'testnet'
   };
 

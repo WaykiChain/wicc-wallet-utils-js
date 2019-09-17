@@ -37,6 +37,7 @@ var cdpliquidateTxinfo = {
     cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
     publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
     scoinsToLiquidate: 2000000000000,
+    assetSymbol:WriterHelper.prototype.CoinType.WICC,
     network: 'testnet'
   };
 

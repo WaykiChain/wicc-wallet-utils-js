@@ -36,6 +36,7 @@ note:
 8、bcoin_symbol:抵押币种
 9、coin_symbol:获得币种
 */
+var map=new Map([[WriterHelper.prototype.CoinType.WICC,100000000]])
 var cdpStakeTxinfo = {
     nTxType: bitcore.WiccApi.CDP_STAKE_TX,
     nVersion: 1,
@@ -45,9 +46,8 @@ var cdpStakeTxinfo = {
     fee_symbol:WriterHelper.prototype.CoinType.WICC,
     cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
     publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    bcoin_symbol:WriterHelper.prototype.CoinType.WICC,
+    assetMap:map,
     scoin_symbol:WriterHelper.prototype.CoinType.WUSD,
-    bcoinsToStake: 0,
     scoinsToMint: 0,
     network: 'testnet'
   };
