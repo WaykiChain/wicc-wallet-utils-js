@@ -12,8 +12,8 @@ note:
 2, fees: handling fee when deploying a smart contract, >= 100000 sawi (0.001 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4, cdpTxId: cdp transaction hash
-5, scoins_to_repay: the number of destroyed wusd
-6, bcoins_to_redeem: the number of WICC
+5, assetAmount: stake coin amount
+6, assetSymbol: stake asset symbol
 7, fee_symbol: fee type (WICC/WUSD)
 */
 /*
@@ -24,10 +24,13 @@ note:
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、cdpTxId:cdp交易hash
 5、scoins_to_repay:销毁的wusd数量
-6、bcoins_to_redeem:赎回的数量
-7、fee_symbol:小费类型（WICC/WUSD）
+6、assetAmount:赎回的数量
+7、assetSymbol: 赎回币种类型
+8、fee_symbol:小费类型（WICC/WUSD）
 */
-var map=new Map([[WriterHelper.prototype.CoinType.WICC,100000000]])
+var assetSymbol=WriterHelper.prototype.CoinType.WICC
+var assetAmount=100000000
+var map=new Map([[assetSymbol,assetAmount]])
 var cdpRedeemTxinfo = {
     nTxType: bitcore.WiccApi.CDP_REDEEMP_TX,
     nVersion: 1,

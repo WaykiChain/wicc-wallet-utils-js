@@ -15,6 +15,7 @@ note:
 5. cdpTxId: the transaction hash created by the cdp
 6. scoinsToLiquidate: the number of liquidation
 7, fee_symbol: fee type (WICC/WUSD)
+8、assetSymbol:get stake coin symbol
 */
 /*
 构建cdp清算交易
@@ -26,6 +27,7 @@ note:
 5、cdpTxId:该cdp的创建的交易hash
 6、scoinsToLiquidate:清算的数量
 7、fee_symbol:小费类型（WICC/WUSD）
+8、assetSymbol:赎回币种类型
 */
 var cdpliquidateTxinfo = {
     nTxType: bitcore.WiccApi.CDP_LIQUIDATE_TX,
