@@ -27,23 +27,31 @@ note:
 6、coinType:币种类型
 7、feesCoinType:小费类型
 */
+
+var coinType = WriterHelper.prototype.CoinType.WUSD
+var destAddr = 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65'
+var value = 32432
+var destArr = [{
+   "coinType":coinType,
+   "destAddr":destAddr,
+   "value":value
+ }
+]
 var cointransferTxinfo = {
-    nTxType:  bitcore.WiccApi.UCOIN_TRANSFER_TX,
-    nVersion: 1,
-    nValidHeight: 602371,
-    fees: 10000,
-    srcRegId: '',
-    destAddr: 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65',
-    value:32432,
-    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    memo:"test transfer",
-    coinType:WriterHelper.prototype.CoinType.WUSD,
-    feesCoinType:WriterHelper.prototype.CoinType.WICC,
-    network: 'testnet'
-  };
+  nTxType: bitcore.WiccApi.UCOIN_TRANSFER_TX,
+  nVersion: 1,
+  nValidHeight: 602371,
+  fees: 10000,
+  srcRegId: '',
+  destArr:destArr,
+  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  memo: "test transfer",
+  feesCoinType: WriterHelper.prototype.CoinType.WICC,
+  network: 'testnet'
+};
 
-  var cointransferTx = new bitcore.Transaction.UCoinTransferTx(cointransferTxinfo);
-  console.log(cointransferTx.destAddr)
+var cointransferTx = new bitcore.Transaction.UCoinTransferTx(cointransferTxinfo);
+console.log(cointransferTx.destAddr)
 
-  var hex = cointransferTx.SerializeTx(privateKey)
-  console.log(hex)
+var hex = cointransferTx.SerializeTx(privateKey)
+console.log(hex)
