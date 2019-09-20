@@ -4,7 +4,7 @@
 
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
-var arg = {network: 'testnet'}
+var arg = { network: 'testnet' }
 var wiccApi = new bitcore.WiccApi(arg)
 
 /*
@@ -25,11 +25,11 @@ var invokeAppInfo = {
   nTxType: bitcore.WiccApi.UCOIN_CONTRACT_INVOKE_TX,
   nVersion: 1,
   nValidHeight: 34400,    // create height
-  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
   srcRegId: '0-1',    // sender's regId
   destRegId: "24555-1",  // app regId
-  feesCoinType:WriterHelper.prototype.CoinType.WICC,
-  coinType:WriterHelper.prototype.CoinType.WUSD,
+  feesCoinType: WriterHelper.prototype.CoinType.WICC,
+  coinType: WriterHelper.prototype.CoinType.WUSD,
   fees: 1000000,         // fees pay for miner
   value: 8,              // amount of WICC to be sent to the app account
   vContract: "f018"      // contract method, hex format string
