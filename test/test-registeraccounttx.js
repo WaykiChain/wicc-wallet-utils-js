@@ -15,7 +15,7 @@ var publicKey = privateKey.toPublicKey();
 Build a transaction for register account
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when registering a account, >= 10000 sawi (0.0001 wicc)
+2, fees: handling fee when registering a account, >= 100000000 sawi (0.1 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 */
 /*

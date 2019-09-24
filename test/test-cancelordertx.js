@@ -7,7 +7,7 @@ var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B
 Build a transaction for cancel order transfer
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when deploying a smart contract, >= 10000 sawi (0.0001 wicc)
+2, fees: handling fee when deploying a smart contract, >= 100000 sawi (0.001 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4, orderId:pending trading hash
 5, fee_symbol: fee type (WICC/WUSD)
