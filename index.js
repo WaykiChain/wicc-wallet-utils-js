@@ -75,5 +75,17 @@ bitcore.Transaction.RegisterAccountTx = require('./lib/transaction/registeraccou
 bitcore.Transaction.CommonTx = require('./lib/transaction/commontx')
 bitcore.Transaction.ContractTx = require('./lib/transaction/contracttx')
 bitcore.Transaction.DelegateTx = require('./lib/transaction/delegatetx')
+
+bitcore.Transaction.CdpStakeTx = require('./lib/transaction/cdpstaketx')
+bitcore.Transaction.FeedPriceTx = require('./lib/transaction/cpricefeedtx')
+bitcore.Transaction.CdpLiquiDateTx = require('./lib/transaction/cdpliquidatetx')
+bitcore.Transaction.CFcoinStakeTx = require('./lib/transaction/cfcoinstaketx')
+bitcore.Transaction.CdpRedeemTx = require('./lib/transaction/cdpredeemtx')
+bitcore.Transaction.UCoinTransferTx = require('./lib/transaction/ucointransfertx')
+bitcore.Transaction.DexSellLimitOrderTx=require('./lib/transaction/dexselllimitordertx')
+bitcore.Transaction.DexBuyLimitOrderTx=require('./lib/transaction/dexbuylimitordertx')
+bitcore.Transaction.DexBuyMarketOrderTx=require('./lib/transaction/dexbuymarketordertx')
+bitcore.Transaction.DexSellMarketOrderTx=require('./lib/transaction/dexsellmarketordertx')
+bitcore.Transaction.DexCancelOrderTx=require('./lib/transaction/dexcancelordertx')
 bitcore.Mnemonic = require('./lib/mnemonic');
 bitcore.WiccApi = require('./lib/wiccapi')

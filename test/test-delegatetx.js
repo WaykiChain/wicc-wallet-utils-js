@@ -26,12 +26,13 @@ var delegateData = [ // array,  item is object data of delegate
 ]
 
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
-var regAppInfo = {
+var delegateInfo = {
   nTxType: bitcore.WiccApi.DELEGATE_TX,
   nVersion: 1,
   nValidHeight: 28128, // create height
-  srcRegId: "28121-3", // sender's regId
+  srcRegId: "", // sender's regId
   delegateData: delegateData,
+  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
   fees: 1001, // fees pay for miner
 };
 
@@ -46,6 +47,6 @@ var address = privateKey.toAddress();
 console.log("get address:")
 console.log(address.toString())
 
-var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.DELEGATE_TX, regAppInfo)
+var rawtx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.DELEGATE_TX, delegateInfo)
 console.log("contract tx raw: ")
 console.log(rawtx)

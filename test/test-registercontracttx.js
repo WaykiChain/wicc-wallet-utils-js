@@ -36,14 +36,14 @@ note:
 var regAppInfo = {
     nTxType: bitcore.WiccApi.REG_APP_TX,
     nVersion: 1,
-    nValidHeight: 34400,       // create height
-    regAcctId: "22030-2",      // sender's regId
+    nValidHeight: 110482,       // create height
+    regAcctId: "0-1",      // sender's regId
     script: script,            // contract scrypt content, string or buf
-    scriptDesc: "",            // contract scrypt description, string or buf
-    fees: 110000000,           // fees pay for miner
+    scriptDesc: "test contract",            // contract scrypt description, string or buf
+    fees: 4200000000,           // fees pay for miner
   };
 
-var wiccPrivateKey = 'Y9f6JFRnYkHMPuEhymC15wHD9FbYBmeV2S6VfDicb4ghNhtXhgAJ'
+var wiccPrivateKey = 'Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13'
 console.log("wicc private key:")
 console.log(wiccPrivateKey)
 

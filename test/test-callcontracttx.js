@@ -11,7 +11,7 @@ var wiccApi = new bitcore.WiccApi(arg)
 Build a transaction for calling smart contract
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when calling smart contract , >= 100000 sawi (0.001 wicc)
+2, fees: handling fee when calling smart contract , >= 1000000 sawi (0.01 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 */
 /*
@@ -25,7 +25,8 @@ var regAppInfo = {
   nTxType: bitcore.WiccApi.CONTRACT_TX,
   nVersion: 1,
   nValidHeight: 34400,    // create height
-  srcRegId: "22030-2",    // sender's regId
+  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  srcRegId: '',    // sender's regId
   destRegId: "24555-1",  // app regId
   fees: 1000000,         // fees pay for miner
   value: 8,              // amount of WICC to be sent to the app account
