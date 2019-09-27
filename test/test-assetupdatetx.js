@@ -37,10 +37,10 @@ var arg = {
 var wiccApi = new bitcore.WiccApi(arg)
 
 //update asset owner regid
-// var assetUpdateData = {
-//    updateType:WriterHelper.prototype.UpdateAssetType.OWNER_UID, 
-//    updateValue:"wbZTWpEnbYoYsedMm2knnP4q7KiSdS3yVq", //owner address
-//   }
+var assetUpdateData = {
+   updateType:WriterHelper.prototype.UpdateAssetType.OWNER_UID, 
+   updateValue:"0-1", //owner address
+  }
 
 //update asset name
 // var assetUpdateData = {
@@ -49,10 +49,10 @@ var wiccApi = new bitcore.WiccApi(arg)
 //  }
 
 //update asset token number
-var assetUpdateData = {
-  updateType: WriterHelper.prototype.UpdateAssetType.MINT_AMOUNT,
-  updateValue: 11000000000000000,  //Increase the number of asset
-}
+// var assetUpdateData = {
+//   updateType: WriterHelper.prototype.UpdateAssetType.MINT_AMOUNT,
+//   updateValue: 11000000000000000,  //Increase the number of asset
+// }
 
 
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
