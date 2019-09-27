@@ -42,8 +42,8 @@ var arg = {
 var wiccApi = new bitcore.WiccApi(arg)
 
 var assetData = {
-  assetSymbol: "STOKEN",   //asset Symbol Capital letter A-Z 6-7 digits [A_Z]
-   ownerAddress: "wLKf2NqwtHk3BfzK5wMDfbKYN1SC3weyR4",  //asset owner
+  assetSymbol: "STOKENN",   //asset Symbol Capital letter A-Z 6-7 digits [A_Z]
+   ownerAddress: "waMDJew9pm5e6fT7aCaWG1yBwcPx1mW7B2",  //asset owner
    assetName:"SS Token",  //asset token name
    totalSupply:10000000000000000,// total Supply *10^8
    minTable:false    //Whether to increase the number
@@ -54,15 +54,14 @@ var assetData = {
 var assetCreateInfo = {
   nTxType: bitcore.WiccApi.ASSET_ISUUE,
   nVersion: 1,
-  nValidHeight: 28128, // create height
-  srcRegId: "0-1", // sender's regId
+  nValidHeight: 8720, // create height
+  srcRegId: "8267-2", // sender's regId
   assetData: assetData,
   feesCoinSymbol:WriterHelper.prototype.CoinType.WICC,
-  publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-  fees: 50000000000, // fees pay for miner min 500 wicc
+  fees: 10000000, // fees pay for miner min 0.01 wicc  +550wicc
 };
 
-var wiccPrivateKey = 'YCnMXzTmEbvjMHA8zLHA8ratHH5noPdFEENKfYPa2uVLcmL3wb6H'
+var wiccPrivateKey = 'Y9wDyMys64KVhqwAVxbAB4aYDNVQ4HpRhQ7FLWFC3MhNNXz4JHot'
 console.log("wicc private key:")
 console.log(wiccPrivateKey)
 
