@@ -4,7 +4,7 @@ var Hash = require('../lib/crypto/hash');
 var crypto = require('crypto');
 var ECDSA = require('../lib/crypto/ecdsa');
 
-var privateKey = bitcore.PrivateKey.fromWIF("Y9dJaHVk7Rs4sVq1Uk8TGLW4PQzzesA7Lss2Xz1inZY9KMfHBSPE")
+var privateKey = bitcore.PrivateKey.fromWIF("Y9wDyMys64KVhqwAVxbAB4aYDNVQ4HpRhQ7FLWFC3MhNNXz4JHot")
 var msg = "WaykiChain"
 var msgBuff = Buffer.from(msg)
 
