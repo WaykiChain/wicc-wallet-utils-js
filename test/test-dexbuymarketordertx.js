@@ -4,6 +4,8 @@
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
+var arg = {network: 'testnet'}
+var wiccApi = new bitcore.WiccApi(arg)
 
 /*
 Build a transaction for market buy transfer
@@ -39,7 +41,6 @@ var dexBuyMarketTxinfo = {
     network: 'testnet'
   };
 
-  var dexBuyMarketOrderTx = new bitcore.Transaction.DexBuyMarketOrderTx(dexBuyMarketTxinfo);
+  var dexBuyMarketOrderTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.DEX_BUY_MARKET_ORDER_TX, dexBuyMarketTxinfo)
 
-  var hex = dexBuyMarketOrderTx.SerializeTx(privateKey)
-  console.log(hex)
+  console.log("----dexBuyMarketOrderTx----", dexBuyMarketOrderTx)

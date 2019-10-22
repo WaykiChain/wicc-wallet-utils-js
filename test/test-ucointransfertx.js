@@ -4,6 +4,8 @@ var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
 
 var privateKey = bitcore.PrivateKey.fromWIF('Y8JhshTg5j2jeTrwk3qBJDYGi5MVsAvfBJRgFfAp14T91UY9AHgZ')
+var arg = {network: 'testnet'}
+var wiccApi = new bitcore.WiccApi(arg)
 
 /*
 Build a transaction for common transfer
@@ -50,8 +52,6 @@ var cointransferTxinfo = {
   network: 'testnet'
 };
 
-var cointransferTx = new bitcore.Transaction.UCoinTransferTx(cointransferTxinfo);
-console.log(cointransferTx.destAddr)
+var cointransferTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.UCOIN_TRANSFER_TX, cointransferTxinfo)
+console.log("----cointransferTx----", cointransferTx)
 
-var hex = cointransferTx.SerializeTx(privateKey)
-console.log(hex)

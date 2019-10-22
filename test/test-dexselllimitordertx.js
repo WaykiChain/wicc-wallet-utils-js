@@ -3,6 +3,8 @@
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
+var arg = {network: 'testnet'}
+var wiccApi = new bitcore.WiccApi(arg)
 
 /*
 Build a transaction for sell limit transfer
@@ -34,7 +36,5 @@ var dexSellLimitTxinfo = {
   };
 
 
-  var dexSellLimitOrderTx = new bitcore.Transaction.DexSellLimitOrderTx(dexSellLimitTxinfo);
-
-  var hex = dexSellLimitOrderTx.SerializeTx(privateKey)
-  console.log(hex)
+  var dexSellLimitOrderTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.DEX_SELL_LIMIT_ORDER_TX, dexSellLimitTxinfo)
+  console.log("----dexSellLimitOrderTx----", dexSellLimitOrderTx)

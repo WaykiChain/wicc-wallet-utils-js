@@ -56,7 +56,6 @@ var cdpStakeTxinfo = {
   };
 
 
-  var cdpStakeTx = new bitcore.Transaction.CdpStakeTx(cdpStakeTxinfo);
+  var cdpStakeTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.CDP_STAKE_TX, cdpStakeTxinfo)
 
-  var hex = cdpStakeTx.SerializeTx(privateKey)
-  console.log(hex)
+  console.log("----cdpStakeTx----", cdpStakeTx)

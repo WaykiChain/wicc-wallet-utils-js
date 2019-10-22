@@ -43,16 +43,5 @@ var commonTxinfo = {
   var tmp = (value >>> 7)
 
 
-  var commonTx = new bitcore.Transaction.CommonTx(commonTxinfo);
-  console.log(commonTx.destAddr)
-
-  /*
-    var ret = commonTx._SignatureHash()
-  var ret = commonTx._SignatureHash()
-  console.log(ret.toString('hex'))
-
-  commonTx._Signtx(privateKey);
-  */
-
-  var hex = commonTx.SerializeTx(privateKey)
-  console.log(hex)
+  var commonTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.COMMON_TX, commonTxinfo)
+  console.log("----commonTx----", commonTx)

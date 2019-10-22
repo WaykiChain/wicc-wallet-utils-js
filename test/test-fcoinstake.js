@@ -44,8 +44,5 @@ var fcoinStakeTxinfo = {
   };
 
 
-  var cfcoinStakeTx = new bitcore.Transaction.CFcoinStakeTx(fcoinStakeTxinfo);
-  console.log(cfcoinStakeTx.bcoinsToStake)
-
-  var hex = cfcoinStakeTx.SerializeTx(privateKey)
-  console.log(hex)
+  var cfcoinStakeTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.FCOIN_STAKE_TX, fcoinStakeTxinfo)
+  console.log("----cointransferTx----", cfcoinStakeTx)

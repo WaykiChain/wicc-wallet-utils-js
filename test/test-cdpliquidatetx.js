@@ -4,6 +4,8 @@
 var bitcore = require('..');
 var WriterHelper = require('../lib/util/writerhelper')
 var privateKey = bitcore.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
+var arg = {network: 'testnet'}
+var wiccApi = new bitcore.WiccApi(arg)
 
 /*
 Build a transaction for cdp liquidate transaction
@@ -44,8 +46,5 @@ var cdpliquidateTxinfo = {
   };
 
 
-  var cdpliquidateTx = new bitcore.Transaction.CdpLiquiDateTx(cdpliquidateTxinfo);
-  console.log(cdpliquidateTx.bcoinsToStake)
-
-  var hex = cdpliquidateTx.SerializeTx(privateKey)
-  console.log(hex)
+  var cdpliquidateTx = wiccApi.createSignTransaction(privateKey, bitcore.WiccApi.CDP_LIQUIDATE_TX, cdpliquidateTxinfo)
+  console.log("-----cdpliquidateTx-----",cdpliquidateTx)
