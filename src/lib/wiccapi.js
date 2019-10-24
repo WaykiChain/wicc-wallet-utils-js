@@ -55,10 +55,6 @@ var txMap = {
     txName: 'UCOIN_CONTRACT_INVOKE_TX',
     txAction: require('./transaction/ucontractinvoketx')
   },
-  16: {
-    txName: 'PRICE_FEED_TX',
-    txAction: require('./transaction/cpricefeedtx')
-  },
   21: {
     txName: 'CDP_STAKE_TX',
     txAction: require('./transaction/cdpstaketx')

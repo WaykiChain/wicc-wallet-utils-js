@@ -5,7 +5,8 @@
     "author": "coredev@waykichainhk.com",
     "main": "src/index.js",
     "scripts": {
-      "build": "webpack"
+      "build": "webpack",
+      "test": "node demo/index.js"
     },
     "keywords": [
       "bitcoin",
