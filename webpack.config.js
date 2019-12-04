@@ -9,5 +9,14 @@ module.exports = {
         library: 'WiccWalletApi',
         libraryTarget: 'umd',
         globalObject: 'this'
-    }
+    },
+    module:{
+		rules:[
+			{
+				test: /\.js$/,
+				 exclude: /node_modules/, 
+				 loader: "babel-loader"
+			}
+		]
+	}
 }
