@@ -117,8 +117,8 @@ WiccApi._fromObject = function _fromObject(data) {
   return info;
 };
 
-WiccApi.prototype.createAllCoinMnemonicCode = function () {
-  var code = new Mnemonic(Mnemonic.Words.ENGLISH)
+WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
+  var code = new Mnemonic(Mnemonic.Words[language])
   var strCode = code.toString()
 
   return strCode

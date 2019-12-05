@@ -1,7 +1,7 @@
 'use strict'
 console.error('\n=====RUN-TEST-COMMONTX-START=====\n')
 // const express = require("express");
-var WiccApi = require('../dist/wicc-wallet-lib.js');
+var WiccApi = require('../index');
 
 var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
