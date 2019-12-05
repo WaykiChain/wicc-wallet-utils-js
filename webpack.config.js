@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
     mode: 'production',
-    entry: './index.js',
+    entry: ["babel-polyfill", "./index.js"],
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'wicc-wallet-lib.js',
@@ -10,13 +10,13 @@ module.exports = {
         libraryTarget: 'umd',
         globalObject: 'this'
     },
-    module:{
-		rules:[
-			{
-				test: /\.js$/,
-				 exclude: /node_modules/, 
-				 loader: "babel-loader"
-			}
-		]
-	}
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            }
+        ]
+    }
 }
