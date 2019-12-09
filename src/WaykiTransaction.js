@@ -21,7 +21,6 @@ class WaykiTransaction {
     genRawTx () {
         var privKey = PrivateKey.fromWIF(this.wallet.privateKey)
         let params = transactionParams(this.txParams, this.wallet)
-        console.log(params)
         let wiccApi = new WiccApi({network: this._getNetwork()})
         return wiccApi.createSignTransaction(privKey, params)
     }

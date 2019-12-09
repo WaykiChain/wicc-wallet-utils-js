@@ -1,10 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-DEXSELLLIMITORDERTX-START=====\n')
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
-var arg = {network: 'testnet'}
-var wiccApi = new WiccApi(arg)
+
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 
 /*
 Build a transaction for sell limit transfer
@@ -21,21 +19,18 @@ note:
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 */
 var dexSellLimitTxinfo = {
-    nTxType: WiccApi.DEX_SELL_LIMIT_ORDER_TX,
-    nVersion: 1,
+    nTxType: 85,
     nValidHeight: 602371,
     fees: 10000,
     srcRegId: '0-1',
-    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    feeSymbol: WriterHelper.prototype.CoinType.WICC,
-    coinSymbol: WriterHelper.prototype.CoinType.WUSD,
-    assetSymbol:WriterHelper.prototype.CoinType.WICC,
+    feeSymbol: "WICC",
+    coinSymbol: "WUSD",
+    assetSymbol:"WICC",
     assetAmount:30000000000,
-    askPrice:200000000,
-    network: 'testnet'
+    price:200000000
   };
 
-
-  var dexSellLimitOrderTx = wiccApi.createSignTransaction(privateKey, WiccApi.DEX_SELL_LIMIT_ORDER_TX, dexSellLimitTxinfo)
+  var transaction = new WaykiTransaction(dexSellLimitTxinfo, wallet)
+  var dexSellLimitOrderTx = transaction.genRawTx()
   console.log("----dexSellLimitOrderTx----", dexSellLimitOrderTx)
   console.error('\n=====RUN-TEST-DEXSELLLIMITORDERTX-END=====\n')

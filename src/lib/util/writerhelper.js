@@ -103,12 +103,16 @@ WriterHelper.prototype.writeCdpAsset = function (map) {
 
     for (var i = 0; i < delegateData.length; i++) {
       var operType = this.VoteOperType.ADD_FUND;
-      if (delegateData.votes < 0) {
+      if (delegateData[0].votes < 0) {
         operType = this.VoteOperType.MINUS_FUND;
       }
       var votes_abs = Math.abs(delegateData[i].votes);
       this.writeUInt8(operType);
-      this.writeString(Buffer.from(delegateData[i].publicKey, 'hex'));
+      if (delegateData[i].publicKey.indexOf("-") > -1) {
+        this.writeRegId(delegateData[i].publicKey)
+      } else {
+        this.writeString(Buffer.from(delegateData[i].publicKey, 'hex'));
+      }
       this.writeVarInt(8, votes_abs)
     }
   }

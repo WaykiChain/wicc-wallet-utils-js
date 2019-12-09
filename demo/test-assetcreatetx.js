@@ -34,12 +34,8 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 9、feesCoinSymbol: 小费类型(WICC/WUSD)
 */
 
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var arg = {
-  network: 'testnet'
-}
-var wiccApi = new WiccApi(arg)
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y9wDyMys64KVhqwAVxbAB4aYDNVQ4HpRhQ7FLWFC3MhNNXz4JHot")
 
 var assetData = {
   assetSymbol: "STOKENN",   //asset Symbol Capital letter A-Z 6-7 digits [A_Z]
@@ -49,30 +45,18 @@ var assetData = {
   minTable: false    //Whether to increase the number
 }
 
-
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
 var assetCreateInfo = {
-  nTxType: WiccApi.ASSET_ISUUE,
-  nVersion: 1,
+  nTxType: 9,
   nValidHeight: 8720, // create height
   srcRegId: "8267-2", // sender's regId
-  assetData: assetData,
-  feesCoinSymbol: WriterHelper.prototype.CoinType.WICC,
+  asset: assetData,
+  feeSymbol: "WICC",
   fees: 10000000, // fees pay for miner min 0.01 wicc  +550wicc
 };
 
-var wiccPrivateKey = 'Y9wDyMys64KVhqwAVxbAB4aYDNVQ4HpRhQ7FLWFC3MhNNXz4JHot'
-console.log("wicc private key:")
-console.log(wiccPrivateKey)
-
-var privateKey = WiccApi.PrivateKey.fromWIF(wiccPrivateKey)
-//console.log("get private key:")
-//console.log(privateKey)
-var address = privateKey.toAddress();
-console.log("get address:")
-console.log(address.toString())
-
-var rawtx = wiccApi.createSignTransaction(privateKey, WiccApi.ASSET_ISUUE, assetCreateInfo)
+var transaction = new WaykiTransaction(assetCreateInfo, wallet)
+var rawtx = transaction.genRawTx()
 console.log("asset create tx raw: ")
 console.log(rawtx)
 console.error('\n=====RUN-TEST-ASSETCREATETX-END=====\n')

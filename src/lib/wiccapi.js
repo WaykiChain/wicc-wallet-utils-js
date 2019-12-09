@@ -23,27 +23,23 @@ var txMap = {
     txAction: require('./transaction/commontx')
   },
   4: {
-    txName: 'CONTRACT_TX',
+    txName: 'LCONTRACT_INVOKE_TX',
     txAction: require('./transaction/contracttx')
   },
   5: {
-    txName: 'REG_APP_TX',
+    txName: 'LCONTRACT_DEPLOY_TX',
     txAction: require('./transaction/registerapptx')
   },
   6: {
-    txName: 'DELEGATE_TX',
+    txName: 'DELEGATE_VOTE_TX',
     txAction: require('./transaction/delegatetx')
   },
-  8: {
-    txName: 'FCOIN_STAKE_TX',
-    txAction: require('./transaction/cfcoinstaketx')
-  },
   9: {
-    txName: 'ASSET_ISUUE',
+    txName: 'ASSET_ISSUE_TX',
     txAction: require('./transaction/assetcreatetx')
   },
   10: {
-    txName: 'ASSET_UPDATE',
+    txName: 'ASSET_UPDATE_TX',
     txAction: require('./transaction/assetupdatetx')
   },
 

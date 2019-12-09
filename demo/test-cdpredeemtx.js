@@ -1,12 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-CDPREDEEMTX-START=====\n')
-// const express = require("express");
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
-var arg = { network: 'testnet' }
-var wiccApi = new WiccApi(arg)
 
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 /*
 Build a transaction for cdp redeem
 note:
@@ -30,25 +26,22 @@ note:
 7、assetSymbol: 赎回币种类型
 8、fee_symbol:小费类型（WICC/WUSD）
 */
-var assetSymbol = WriterHelper.prototype.CoinType.WICC
+var assetSymbol = "WICC"
 var assetAmount = 100000000
 var map = new Map([[assetSymbol, assetAmount]])
 var cdpRedeemTxinfo = {
-  nTxType: WiccApi.CDP_REDEEMP_TX,
-  nVersion: 1,
+  nTxType: 22,
   nValidHeight: 78,
-  txUid: "",
+  srcRegId: "",
   fees: 100000,
   cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
-  publicKey: "03af0341d7470d6e02687bec8920dbfba83544571a71f1cd6ef487c7fd88768c01",
-  fee_symbol: WriterHelper.prototype.CoinType.WICC,
-  scoins_to_repay: 0,
-  assetMap: map,
-  network: 'testnet'
+  feeSymbol: "WICC",
+  sCoinsToRepay: 0,
+  assetMap: map
 };
 
-
-var cdpRedeemTx = wiccApi.createSignTransaction(privateKey, WiccApi.CDP_REDEEMP_TX, cdpRedeemTxinfo)
+var transaction = new WaykiTransaction(cdpRedeemTxinfo, wallet)
+var cdpRedeemTx = transaction.genRawTx()
 
 console.log('----cdpRedeemTx----', cdpRedeemTx)
 

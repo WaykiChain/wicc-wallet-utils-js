@@ -6,7 +6,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'wicc-wallet-lib.js',
-        library: 'WiccWalletApi',
+        library: 'WiccWalletLib',
         libraryTarget: 'umd',
         globalObject: 'this'
     },

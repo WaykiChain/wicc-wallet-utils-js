@@ -1,7 +1,6 @@
 'use strict'
 console.error('\n=====RUN-TEST-REGISTERACCOUNTTX-START=====\n')
-var WaykiTransaction = require('../src/WaykiTransaction')
-var Wallet = require('../src/Wallet');
+var { WaykiTransaction, Wallet } = require("../index")
 var wallet = new Wallet("Y5Lrutj2nJmmCVJ9hmTmNyASJxUACu9b8djoobrHmoGye3uhXnrb")
 
 /*
@@ -20,7 +19,7 @@ note:
 */
 
 var registeraccounttxInfo = {
-  nTxType: 2,   
+  nTxType: 2,
   nValidHeight: 34632,
   fees: 10000000
 };

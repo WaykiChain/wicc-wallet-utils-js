@@ -1,10 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-CANCELORDER-START=====\n')
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
-var arg = { network: 'testnet' }
-var wiccApi = new WiccApi(arg)
+
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 /*
 Build a transaction for cancel order transfer
 note:
@@ -24,18 +22,16 @@ note:
 5, fee_symbol: 小费类型(WICC/WUSD)
 */
 var dexCancelTxinfo = {
-  nTxType: WiccApi.DEX_CANCEL_ORDER_TX,
-  nVersion: 1,
+  nTxType: 88,
   nValidHeight: 5360,
   fees: 10000,
-  feeSymbol: WriterHelper.prototype.CoinType.WICC,
+  feeSymbol: "WICC",
   srcRegId: '',
-  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-  orderId: '009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144',
-  network: 'testnet'
+  orderId: '009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144'
 };
 
-var dexCancelOrderTx = wiccApi.createSignTransaction(privateKey, WiccApi.DEX_CANCEL_ORDER_TX, dexCancelTxinfo);
+var transaction = new WaykiTransaction(dexCancelTxinfo, wallet)
+var dexCancelOrderTx = transaction.genRawTx()
 
 console.log("----dexCancelOrderTx----", dexCancelOrderTx)
 console.error('\n=====RUN-TEST-CANCELORDERTX-END=====\n')

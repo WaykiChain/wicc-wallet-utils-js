@@ -1,12 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-DEXBUYLIMITORDERTX-START=====\n')
-// const express = require("express");
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
-var arg = {network: 'testnet'}
-var wiccApi = new WiccApi(arg)
 
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 /*
 Build a transaction for dex buy limit transfer
 note:
@@ -30,21 +26,19 @@ note:
 7、bidPrice:价格
 */
 var dexBuyLimitTxinfo = {
-    nTxType: WiccApi.DEX_BUY_LIMIT_ORDER_TX,
-    nVersion: 1,
+    nTxType: 84,
     nValidHeight: 5360,
     fees: 10000,
     srcRegId: '0-1',
-    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    feeSymbol: WriterHelper.prototype.CoinType.WICC,
-    coinSymbol: WriterHelper.prototype.CoinType.WUSD,
-    assetSymbol:WriterHelper.prototype.CoinType.WICC,
+    feeSymbol: "WICC",
+    coinSymbol: "WUSD",
+    assetSymbol:"WICC",
     assetAmount:10,
-    bidPrice:200,
-    network: 'testnet'
+    price:200
   };
 
-  var dexBuyLimitOrderTx = wiccApi.createSignTransaction(privateKey, WiccApi.DEX_BUY_LIMIT_ORDER_TX, dexBuyLimitTxinfo)
+  var transaction = new WaykiTransaction(dexBuyLimitTxinfo, wallet)
+  var dexBuyLimitOrderTx = transaction.genRawTx()
 
   console.log("----dexBuyLimitOrderTx----", dexBuyLimitOrderTx)
   console.error('\n=====RUN-TEST-DEXBUYLIMITORDERTX-END=====\n')

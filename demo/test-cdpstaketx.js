@@ -1,16 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-CDPSTAKETX-START=====\n')
-// const express = require("express");
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 
-var arg = {network: 'testnet'}
-var wiccApi = new WiccApi(arg)
-
-// 验证地址
-var ret = wiccApi.validateAddress('wPcHigM3Gbtbooxyd3YyBXiMintZnfD7cE')
-console.log(ret)
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 
 /*
 Build a transaction for cdp stake transaction
@@ -37,27 +29,25 @@ note:
 8、assetAmount:抵押币种
 9、coin_symbol:获得币种
 */
-var assetSymbol=WriterHelper.prototype.CoinType.WICC
-var assetAmount=100000000
-var map=new Map([[assetSymbol,assetAmount]])
+var assetSymbol = "WICC"
+var assetAmount = 100000000
+var map = new Map([[assetSymbol, assetAmount]])
 var cdpStakeTxinfo = {
-    nTxType: WiccApi.CDP_STAKE_TX,
-    nVersion: 1,
-    nValidHeight: 25,
-    txUid:"0-1",
-    fees: 100000,
-    fee_symbol:WriterHelper.prototype.CoinType.WICC,
-    cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
-    publicKey:"03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-    assetMap:map,
-    scoin_symbol:WriterHelper.prototype.CoinType.WUSD,
-    scoinsToMint: 0,
-    network: 'testnet'
-  };
+  nTxType: 21,
+  nValidHeight: 25,
+  srcRegId: "0-1",
+  fees: 100000,
+  feeSymbol: "WICC",
+  cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
+  assetMap: map,
+  sCoinSymbol: "WUSD",
+  sCoinToMint: 0
+};
 
 
-  var cdpStakeTx = wiccApi.createSignTransaction(privateKey, WiccApi.CDP_STAKE_TX, cdpStakeTxinfo)
+var transaction = new WaykiTransaction(cdpStakeTxinfo, wallet)
+var cdpStakeTx = transaction.genRawTx()
 
-  console.log("----cdpStakeTx----", cdpStakeTx)
+console.log("----cdpStakeTx----", cdpStakeTx)
 
-  console.error('\n=====RUN-TEST-CDPSTAKETX-END=====\n')
+console.error('\n=====RUN-TEST-CDPSTAKETX-END=====\n')

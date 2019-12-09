@@ -29,57 +29,28 @@ note:
 6、updateType:更新类型 1:资产拥有者 2:资产名称 3.资产数量
 */
 
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var arg = {
-  network: 'testnet'
-}
-var wiccApi = new WiccApi(arg)
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("YCnMXzTmEbvjMHA8zLHA8ratHH5noPdFEENKfYPa2uVLcmL3wb6H")
 
 //update asset owner regid
 var assetUpdateData = {
-  updateType: WriterHelper.prototype.UpdateAssetType.OWNER_UID,
+  updateType: 1,
   updateValue: "0-1", //owner address
 }
 
-//update asset name
-// var assetUpdateData = {
-//   updateType:WriterHelper.prototype.UpdateAssetType.NAME,
-//   updateValue:"TokenName", //asset name
-//  }
-
-//update asset token number
-// var assetUpdateData = {
-//   updateType: WriterHelper.prototype.UpdateAssetType.MINT_AMOUNT,
-//   updateValue: 11000000000000000,  //Increase the number of asset
-// }
-
-
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
 var assetUpdateInfo = {
-  nTxType: WiccApi.ASSET_UPDATE,
-  nVersion: 1,
+  nTxType: 10,
   nValidHeight: 28128, // create height
   srcRegId: "0-1", // sender's regId
-  assetUpdateData: assetUpdateData,
-  feesCoinSymbol: WriterHelper.prototype.CoinType.WICC,
-  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  updateData: assetUpdateData,
+  feeSymbol: WriterHelper.prototype.CoinType.WICC,
   assetSymbol: "LOLLLL",   //Symbol Capital letter A-Z 6-7 digits [A_Z]
   fees: 11000000000, // fees pay for miner min 0.01 wicc +110wicc
 };
 
-var wiccPrivateKey = 'YCnMXzTmEbvjMHA8zLHA8ratHH5noPdFEENKfYPa2uVLcmL3wb6H'
-console.log("wicc private key:")
-console.log(wiccPrivateKey)
-
-var privateKey = WiccApi.PrivateKey.fromWIF(wiccPrivateKey)
-//console.log("get private key:")
-//console.log(privateKey)
-var address = privateKey.toAddress();
-console.log("get address:")
-console.log(address.toString())
-
-var rawtx = wiccApi.createSignTransaction(privateKey, WiccApi.ASSET_UPDATE, assetUpdateInfo)
+var transaction = new WaykiTransaction(assetUpdateInfo, wallet)
+var rawtx = transaction.genRawTx()
 console.log("asset update tx raw: ")
 console.log(rawtx)
 console.error('\n=====RUN-TEST-ASSETUPDATETX-END=====\n')

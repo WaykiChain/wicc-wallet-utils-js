@@ -1,8 +1,7 @@
 'use strict'
 console.error('\n=====RUN-TEST-COMMONTX-START=====\n')
 // const express = require("express");
-var WaykiTransaction = require('../src/WaykiTransaction')
-var Wallet = require('../src/Wallet');
+var { WaykiTransaction, Wallet } = require("../index")
 var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 
 /*

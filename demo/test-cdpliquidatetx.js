@@ -1,11 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-CDPLIQUIDATETX-START=====\n')
 // const express = require("express");
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
-var privateKey = WiccApi.PrivateKey.fromWIF('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
-var arg = { network: 'testnet' }
-var wiccApi = new WiccApi(arg)
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 
 /*
 Build a transaction for cdp liquidate transaction
@@ -32,21 +29,19 @@ note:
 8、assetSymbol:赎回币种类型
 */
 var cdpliquidateTxinfo = {
-  nTxType: WiccApi.CDP_LIQUIDATE_TX,
-  nVersion: 1,
+  nTxType: 23,
   nValidHeight: 501,
-  txUid: "",
+  srcRegId: "",
   fees: 100000,
-  fee_symbol: WriterHelper.prototype.CoinType.WICC,
+  feeSymbol: "WICC",
   cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
-  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
-  scoinsToLiquidate: 2000000000000,
-  assetSymbol: WriterHelper.prototype.CoinType.WICC,
-  network: 'testnet'
+  sCoinsToLiquidate: 2000000000000,
+  liquidateAssetSymbol: "WICC"
 };
 
 
-var cdpliquidateTx = wiccApi.createSignTransaction(privateKey, WiccApi.CDP_LIQUIDATE_TX, cdpliquidateTxinfo)
+var transaction = new WaykiTransaction(cdpliquidateTxinfo, wallet)
+var cdpliquidateTx = transaction.genRawTx()
 console.log("-----cdpliquidateTx-----", cdpliquidateTx)
 
 console.error('\n=====RUN-TEST-CDPLIQUIDATETX-END=====\n')

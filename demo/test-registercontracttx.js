@@ -1,14 +1,10 @@
 'use strict';
 console.error('\n=====RUN-TEST-REGISTERCONTACTTX-START=====\n')
-// usage: 
-// node test-registerapptx.js
 
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 var _ = require('lodash');
-var WiccApi = require('../index');
 var fs = require("fs")
-
-var arg = {network: 'testnet'}
-var wiccApi = new WiccApi(arg)
 
 var script = fs.readFileSync(__dirname + '/data/contract-hello.lua');
 //console.log("load script file:")
@@ -34,27 +30,17 @@ note:
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 */
 var regAppInfo = {
-    nTxType: WiccApi.REG_APP_TX,
-    nVersion: 1,
-    nValidHeight: 110482,       // create height
-    regAcctId: "0-1",      // sender's regId
-    script: script,            // contract scrypt content, string or buf
-    scriptDesc: "test contract",            // contract scrypt description, string or buf
-    fees: 4200000000,           // fees pay for miner
-  };
+  nTxType: 5,
+  nValidHeight: 110482,       // create height
+  srcRegId: "0-1",      // sender's regId
+  vContract: script,            // contract scrypt content, string or buf
+  description: "test contract",            // contract scrypt description, string or buf
+  fees: 4200000000,           // fees pay for miner
+};
 
-var wiccPrivateKey = 'Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13'
-console.log("wicc private key:")
-console.log(wiccPrivateKey)
 
-var privateKey = WiccApi.PrivateKey.fromWIF(wiccPrivateKey)
-//console.log("get private key:")
-//console.log(privateKey)
-var address = privateKey.toAddress();
-console.log("get address:")
-console.log(address.toString())
-
-var rawtx = wiccApi.createSignTransaction(privateKey, WiccApi.REG_APP_TX, regAppInfo)
+var transaction = new WaykiTransaction(regAppInfo, wallet)
+var rawtx = transaction.genRawTx()
 console.log("reg app tx raw: ")
 console.log(rawtx)
 console.error('\n=====RUN-TEST-REGISTERCONTACTTX-END=====\n')

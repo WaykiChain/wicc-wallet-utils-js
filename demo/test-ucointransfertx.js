@@ -1,11 +1,8 @@
 'use strict'
 console.error('\n=====RUN-TEST-UCOINTRANSFERTX-START=====\n')
-var WiccApi = require('../index');
-var WriterHelper = require('../src/lib/util/writerhelper')
 
-var privateKey = WiccApi.PrivateKey.fromWIF('Y8JhshTg5j2jeTrwk3qBJDYGi5MVsAvfBJRgFfAp14T91UY9AHgZ')
-var arg = {network: 'testnet'}
-var wiccApi = new WiccApi(arg)
+var { WaykiTransaction, Wallet } = require("../index")
+var wallet = new Wallet("Y8JhshTg5j2jeTrwk3qBJDYGi5MVsAvfBJRgFfAp14T91UY9AHgZ")
 
 /*
 Build a transaction for common transfer
@@ -34,25 +31,23 @@ var coinType = WriterHelper.prototype.CoinType.WUSD
 var destAddr = 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65'
 var value = 32432
 var destArr = [{
-   "coinType":coinType,
-   "destAddr":destAddr,
-   "value":value
+   "coinSymbol":coinType,
+   "destAddress":destAddr,
+   "transferAmount":value
  }
 ]
 var cointransferTxinfo = {
-  nTxType: WiccApi.UCOIN_TRANSFER_TX,
-  nVersion: 1,
+  nTxType: 11,
   nValidHeight: 602371,
   fees: 10000,
   srcRegId: '',
-  destArr:destArr,
-  publicKey: "03e93e7d870ce6f1c9997076c56fc24e6381c612662cd9a5a59294fac9ba7d21d7",
+  dests: destArr,
   memo: "test transfer",
-  feesCoinType: WriterHelper.prototype.CoinType.WICC,
-  network: 'testnet'
+  feeSymbol: "WICC"
 };
 
-var cointransferTx = wiccApi.createSignTransaction(privateKey, WiccApi.UCOIN_TRANSFER_TX, cointransferTxinfo)
+var transaction = new WaykiTransaction(cointransferTxinfo, wallet)
+var cointransferTx = transaction.genRawTx()
 console.log("----cointransferTx----", cointransferTx)
 console.error('\n=====RUN-TEST-UCOINTRANSFERTX-END=====\n')
 
