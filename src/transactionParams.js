@@ -174,7 +174,7 @@ var transactionParams = function (arg, wallet) {
             }
         },
         84: {
-            name: 'DEX_BUY_LIMIT_ORDER_TX',
+            name: 'DEX_LIMIT_BUY_ORDER_TX',
             handler: () => { 
                 let pubkey = wallet.publicKeyAsHex().toString()
                 txParams.publicKey = pubkey
@@ -189,7 +189,7 @@ var transactionParams = function (arg, wallet) {
             }
         },
         85: {
-            name: 'DEX_SELL_LIMIT_ORDER_TX',
+            name: 'DEX_LIMIT_SELL_ORDER_TX',
             handler: () => { 
                 let pubkey = wallet.publicKeyAsHex().toString()
                 txParams.publicKey = pubkey
@@ -204,7 +204,7 @@ var transactionParams = function (arg, wallet) {
             }
         },
         86: {
-            name: 'DEX_BUY_MARKET_ORDER_TX',
+            name: 'DEX_MARKET_BUY_ORDER_TX',
             handler: () => { 
                 let pubkey = wallet.publicKeyAsHex().toString()
                 txParams.publicKey = pubkey
@@ -218,7 +218,7 @@ var transactionParams = function (arg, wallet) {
             }
         },
         87: {
-            name: 'DEX_SELL_MARKET_ORDER_TX',
+            name: 'DEX_MARKET_SELL_ORDER_TX',
             handler: () => {
                 let pubkey = wallet.publicKeyAsHex().toString()
                 txParams.publicKey = pubkey

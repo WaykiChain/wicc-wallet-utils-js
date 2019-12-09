@@ -64,19 +64,19 @@ var txMap = {
     txAction: require('./transaction/cdpliquidatetx')
   },
   84: {
-    txName: 'DEX_BUY_LIMIT_ORDER_TX',
+    txName: 'DEX_LIMIT_BUY_ORDER_TX',
     txAction: require('./transaction/dexbuylimitordertx')
   },
   85: {
-    txName: 'DEX_SELL_LIMIT_ORDER_TX',
+    txName: ' DEX_LIMIT_SELL_ORDER_TX',
     txAction: require('./transaction/dexselllimitordertx')
   },
   86: {
-    txName: 'DEX_BUY_MARKET_ORDER_TX',
+    txName: 'DEX_MARKET_BUY_ORDER_TX',
     txAction: require('./transaction/dexbuymarketordertx')
   },
   87: {
-    txName: 'DEX_SELL_MARKET_ORDER_TX',
+    txName: 'DEX_MARKET_SELL_ORDER_TX',
     txAction: require('./transaction/dexsellmarketordertx')
   },
   88: {
