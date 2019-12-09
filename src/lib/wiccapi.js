@@ -15,7 +15,7 @@ var CustomBuffer = require('./util/buffer')
 
 var txMap = {
   2: {
-    txName: 'REGISTER_ACCOUNT_TX',
+    txName: 'ACCOUNT_REGISTER_TX',
     txAction: require('./transaction/registeraccounttx')
   },
   3: {

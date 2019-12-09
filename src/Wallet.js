@@ -1,18 +1,19 @@
 var PrivateKey = require('../src/lib/privatekey');
 var Hash = require('./lib/crypto/hash');
 var ECDSA = require('./lib/crypto/ecdsa');
+var _ = require('lodash');
 
 class Wallet {
     constructor(privateKey = "") {
-        if (!privateKey.length) {
+        if (!_.trim(privateKey).length) {
             throw "private key is required"
         }
         this.privateKey = privateKey;
         this._getAddress()
     }
     _getAddress() {
-        var priKey = PrivateKey.fromWIF(this.privateKey)
-        this.address = priKey.toAddress().toString()
+        var privKey = PrivateKey.fromWIF(this.privateKey)
+        this.address = privKey.toAddress().toString()
     }
     signMessage(message) {
         var privateKey = PrivateKey.fromWIF(this.privateKey)
