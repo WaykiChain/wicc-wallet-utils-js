@@ -117,6 +117,10 @@ WiccApi._fromObject = function _fromObject(data) {
   return info;
 };
 
+WiccApi.prototype.getBIP44Path = function () {
+  return this.network === "testnet" ? "m/44'/999999'/0'/0/0" : "m/44'/99999'/0'/0/0"
+}
+
 WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
   var code = new Mnemonic(Mnemonic.Words[language])
   var strCode = code.toString()
@@ -135,14 +139,14 @@ WiccApi.prototype.validateAddress = function (address) {
 WiccApi.prototype.getPriKeyFromMnemonicCode = function (mnemonic) {
   var code = new Mnemonic(mnemonic)
   var xpriv = code.toHDPrivateKey(null, this.network);
-  var p = xpriv.deriveChild("m/44'/99999'/0'/0/0");
+  var p = xpriv.deriveChild(this.getBIP44Path());
   return p.privateKey.toWIF()
 }
 
 WiccApi.prototype.getAddressFromMnemonicCode = function (mnemonic) {
   var code = new Mnemonic(mnemonic)
   var xpriv = code.toHDPrivateKey(null, this.network);
-  var p = xpriv.deriveChild("m/44'/99999'/0'/0/0");
+  var p = xpriv.deriveChild(this.getBIP44Path());
   return p.privateKey.toAddress()
 }
 
@@ -158,7 +162,7 @@ WiccApi.prototype.createWallet = function (mnemonic, password) {
   var seed = code.toSeed()
 
   var xpriv = code.toHDPrivateKey(null, this.network);
-  var p = xpriv.deriveChild("m/44'/99999'/0'/0/0");
+  var p = xpriv.deriveChild(this.getBIP44Path());
   var address = p.privateKey.toAddress()
   var strAddress = address.toString()
 
@@ -240,7 +244,7 @@ WiccApi.prototype.getPriKeyFromSeed = function (seedinfo, password) {
   */
 
   var xpriv = HDPrivateKey.fromSeed(seed, this.network);
-  var p = xpriv.deriveChild("m/44'/99999'/0'/0/0");
+  var p = xpriv.deriveChild(this.getBIP44Path());
 
   return p.privateKey.toWIF()
 }
