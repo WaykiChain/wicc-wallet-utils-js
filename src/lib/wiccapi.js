@@ -19,7 +19,7 @@ var txMap = {
     txAction: require('./transaction/registeraccounttx')
   },
   3: {
-    txName: 'COMMON_TX',
+    txName: 'BCOIN_TRANSFER_TX',
     txAction: require('./transaction/commontx')
   },
   4: {
@@ -338,8 +338,8 @@ WiccApi.prototype.changePassword = function (seedinfo, oldpassword, newpassword)
   return newseedinfo
 }
 
-WiccApi.prototype.createSignTransaction = function (privkey, txType, txData) {
-  var txConstructor = txMap[txType].txAction
+WiccApi.prototype.createSignTransaction = function (privkey, txData) {
+  var txConstructor = txMap[txData.nTxType].txAction
   var txBody = new txConstructor(txData)
   return txBody.SerializeTx(privkey)
 }
