@@ -27,7 +27,7 @@ note:
 7、feesCoinType:小费类型
 */
 
-var coinType = WriterHelper.prototype.CoinType.WUSD
+var coinType = "WUSD"
 var destAddr = 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65'
 var value = 32432
 var destArr = [{

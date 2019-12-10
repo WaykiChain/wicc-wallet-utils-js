@@ -21,9 +21,9 @@ var UContractTx = function UContractTx(arg) {
   this.destRegId = info.destRegId;
   this.fees = info.fees;
   this.value = info.value;
-  this.feesCoinType=info.feesCoinType;
-  this.publicKey=info.publicKey;
-  this.coinType=info.coinType;
+  this.feesCoinType = info.feesCoinType;
+  this.publicKey = info.publicKey;
+  this.coinType = info.coinType;
   this.vContract = info.vContract;
 
   return this;
@@ -64,28 +64,28 @@ UContractTx._fromObject = function _fromObject(data) {
     destRegId: data.destRegId,
     fees: data.fees,
     value: data.value,
-    publicKey:data.publicKey,
-    coinType:data.coinType,
-    feesCoinType:data.feesCoinType,
+    publicKey: data.publicKey,
+    coinType: data.coinType,
+    feesCoinType: data.feesCoinType,
     vContract: contract
   };
   return info;
 };
 
-UContractTx.prototype._SignatureHash = function() {
+UContractTx.prototype._SignatureHash = function () {
   var writer = new WriterHelper();
   writer.writeVarInt(4, this.nVersion)
   writer.writeUInt8(this.nTxType)
   writer.writeVarInt(4, this.nValidHeight)
- 
- if(this.srcRegId!=null&&!_.isEmpty(this.srcRegId)){
-   writer.writeRegId(this.srcRegId)
-  }else if (this.publicKey!=null&&!_.isEmpty(this,this.publicKey)){
-   var pubKey= Buffer.from(this.publicKey, 'hex')
+
+  if (this.srcRegId != null && !_.isEmpty(this.srcRegId)) {
+    writer.writeRegId(this.srcRegId)
+  } else if (this.publicKey != null && !_.isEmpty(this, this.publicKey)) {
+    var pubKey = Buffer.from(this.publicKey, 'hex')
     writer.writeUInt8(pubKey.length)
     writer.write(pubKey)
-  }else{
-   return false;
+  } else {
+    return false;
   }
 
   writer.writeRegId(this.destRegId)
@@ -102,7 +102,7 @@ UContractTx.prototype._SignatureHash = function() {
   return Hash.sha256sha256(serialBuf);
 }
 
-UContractTx.prototype._Signtx = function(privateKey) {
+UContractTx.prototype._Signtx = function (privateKey) {
   var hashbuf = this._SignatureHash()
   var sig = ECDSA.sign(hashbuf, privateKey, 'endian')
   var sigBuf = sig.toBuffer()
@@ -110,27 +110,27 @@ UContractTx.prototype._Signtx = function(privateKey) {
   return sigBuf;
 }
 
-UContractTx.prototype.SerializeTx = function(privateKey) {
+UContractTx.prototype.SerializeTx = function (privateKey) {
   var writer = new WriterHelper();
   writer.writeUInt8(this.nTxType)
   writer.writeVarInt(4, this.nVersion)
   writer.writeVarInt(4, this.nValidHeight)
 
-  if(this.srcRegId!=null&&!_.isEmpty(this.srcRegId)){
+  if (this.srcRegId != null && !_.isEmpty(this.srcRegId)) {
     writer.writeRegId(this.srcRegId)
-   }else if (this.publicKey!=null&&!_.isEmpty(this,this.publicKey)){
-    var pubKey= Buffer.from(this.publicKey, 'hex')
-     writer.writeUInt8(pubKey.length)
-     writer.write(pubKey)
-   }else{
+  } else if (this.publicKey != null && !_.isEmpty(this, this.publicKey)) {
+    var pubKey = Buffer.from(this.publicKey, 'hex')
+    writer.writeUInt8(pubKey.length)
+    writer.write(pubKey)
+  } else {
     return false;
-   }
-   writer.writeRegId(this.destRegId)
-   writer.writeString(Buffer.from(this.vContract))
-   writer.writeVarInt(8, this.fees)
-   writer.writeString(Buffer.from(this.feesCoinType))
-   writer.writeString(Buffer.from(this.coinType))
-   writer.writeVarInt(8, this.value)
+  }
+  writer.writeRegId(this.destRegId)
+  writer.writeString(Buffer.from(this.vContract))
+  writer.writeVarInt(8, this.fees)
+  writer.writeString(Buffer.from(this.feesCoinType))
+  writer.writeString(Buffer.from(this.coinType))
+  writer.writeVarInt(8, this.value)
 
   var sigBuf = this._Signtx(privateKey)
   writer.writeBuf(sigBuf)
