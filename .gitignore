@@ -4,3 +4,4 @@ node_modules/
 .jsbeautifyrc
 .eslintrc.json
 .history
+/dist/
