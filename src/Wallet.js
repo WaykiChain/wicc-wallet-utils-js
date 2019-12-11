@@ -8,6 +8,9 @@ class Wallet {
         if (!privateKey || !_.trim(privateKey).length) {
             throw "private key is required"
         }
+        if (!PrivateKey.isValid(privateKey) ) {
+            throw "Invalid privatekey"
+        }
         this.privateKey = privateKey;
         this._getAddress()
     }

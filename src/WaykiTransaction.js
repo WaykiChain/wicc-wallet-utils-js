@@ -24,7 +24,6 @@ class WaykiTransaction {
         let wiccApi = new WiccApi({network: this._getNetwork()})
         return wiccApi.createSignTransaction(privKey, params)
     }
-    decodeTxRaw(rawTx) {}
 }
 
 module.exports = WaykiTransaction

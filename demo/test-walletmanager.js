@@ -7,7 +7,7 @@ var mnemonic = walletManager.randomMnemonicCodes("ENGLISH")
 console.log("助记词：", mnemonic)
 
 //创建钱包
-var walletInfo = walletManager.createWallet(mnemonic)
+var walletInfo = walletManager.createWallet('romance chunk tape soon bitter option wet space veteran matter embrace cactus')
 console.log("助记词：", walletInfo)
 
 //导入助记词
