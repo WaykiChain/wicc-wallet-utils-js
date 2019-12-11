@@ -44,7 +44,7 @@ var assetUpdateInfo = {
   nValidHeight: 28128, // create height
   srcRegId: "0-1", // sender's regId
   updateData: assetUpdateData,
-  feeSymbol: WriterHelper.prototype.CoinType.WICC,
+  feeSymbol: "WICC",
   assetSymbol: "LOLLLL",   //Symbol Capital letter A-Z 6-7 digits [A_Z]
   fees: 11000000000, // fees pay for miner min 0.01 wicc +110wicc
 };

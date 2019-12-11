@@ -1,6 +1,6 @@
 'use strict';
 console.error('\n=====RUN-TEST-WICCAPI-START=====\n')
-var WiccApi = require('../index');
+var  { WiccApi } = require("../index")
 
 //environment init 
 //环境初始化
