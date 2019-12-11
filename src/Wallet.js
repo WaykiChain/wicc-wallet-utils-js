@@ -5,7 +5,7 @@ var _ = require('lodash');
 
 class Wallet {
     constructor(privateKey = "") {
-        if (!_.trim(privateKey).length) {
+        if (!privateKey || !_.trim(privateKey).length) {
             throw "private key is required"
         }
         this.privateKey = privateKey;
