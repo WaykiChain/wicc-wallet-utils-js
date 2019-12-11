@@ -1,3 +1,5 @@
+console.error('\n=====RUN-TEST-WALLET-START=====\n')
+
 var { Wallet } = require("../index")
 
 var privKey = "Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13"
@@ -11,3 +13,5 @@ console.log("签名消息:"+signMsg)
 
 var pubKey = wallet.publicKeyAsHex()
 console.log("公钥:"+pubKey)
+
+console.error('\n=====RUN-TEST-WALLET-END=====\n')

@@ -1,3 +1,5 @@
+console.error('\n=====RUN-TEST-BAASCLIENT-START=====\n')
+
 var { WaykiTransaction, WalletManager, BaasClient } = require("../index")
 
 var wallet = new WalletManager("testnet").importWalletFromPrivateKey("Y8AvAr4cajNnYfzVU9gAzNuQ8rYWJ5Dq5XyTkczeb9mNmGxEKWua")
@@ -39,3 +41,5 @@ Promise.all([response, countResponse]).then(res => {
         console.log(res.data.hash)
     })
 })
+
+console.error('\n=====RUN-TEST-BAASCLIENT-END=====\n')

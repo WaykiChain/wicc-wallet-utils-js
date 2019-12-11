@@ -1,3 +1,5 @@
+console.error('\n=====RUN-TEST-WALLETMANAGER-START=====\n')
+
 var { WalletManager } = require("../index")
 
 var walletManager = new WalletManager("testnet")
@@ -17,3 +19,5 @@ console.log("wallet1:", wallet1)
 //导入私钥
 var wallet2 = walletManager.importWalletFromPrivateKey('Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13')
 console.log("wallet2:", wallet2)
+
+console.error('\n=====RUN-TEST-WALLETMANAGER-END=====\n')

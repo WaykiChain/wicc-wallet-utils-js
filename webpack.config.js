@@ -5,8 +5,8 @@ module.exports = {
     entry: ["babel-polyfill", "./index.js"],
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'wicc-wallet-lib.js',
-        library: 'WiccWalletLib',
+        filename: 'wicc-wallet-lib-2.0.js',
+        library: 'wicc-wallet-lib',
         libraryTarget: 'umd',
         globalObject: 'this'
     },

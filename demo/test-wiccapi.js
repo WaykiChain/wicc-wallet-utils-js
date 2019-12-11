@@ -1,5 +1,5 @@
 'use strict';
-console.error('\n=====RUN-TEST-WALLET-START=====\n')
+console.error('\n=====RUN-TEST-WICCAPI-START=====\n')
 var WiccApi = require('../index');
 
 //environment init 
@@ -50,4 +50,4 @@ console.log("New Create publicKey1="+pubKey,"New Create address="+address.toStri
 ret = wiccApi.validateAddress(address)
 console.log("Check address Result="+ret)
 
-console.error('\n=====RUN-TEST-WALLET-END=====\n')
+console.error('\n=====RUN-TEST-WICCAPI-END=====\n')
