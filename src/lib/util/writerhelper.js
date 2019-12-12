@@ -133,10 +133,10 @@ WriterHelper.prototype.writeCdpAsset = function (map) {
 
   WriterHelper.prototype.writeAssetData = function (assetData, network) {
     this.writeString(assetData.assetSymbol)
-    this.writeRegId(assetData.ownerAddress)
+    this.writeRegId(assetData.ownerRegid)
     this.writeString(assetData.assetName)
     var minTable = 1
-    if (!assetData.minTable) minTable = 0
+    if (!assetData.modifiAble) minTable = 0
     this.writeUInt8(minTable)
     this.writeVarInt(8, assetData.totalSupply)
   }

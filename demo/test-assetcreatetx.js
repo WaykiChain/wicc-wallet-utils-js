@@ -11,10 +11,10 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 2, fees: handling fee when calling smart contract , >= 1000000 sawi (0.01 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4. assetSymbol: Asset symbols, publishing success can not be modified (asset Symbol Capital letter A-Z 1-7 digits [A_Z])
-5. ownerAddress: asset owner
+5. ownerRegid: asset owner
 6. tokeName: asset name
 7. totalSupply: total asset circulation
-8. minTable: Whether the asset can be issued 
+8. modifiAble: Whether the asset can be issued 
 9、feesCoinSymbol: fee type(WICC/WUSD)
 */
 /*
@@ -27,10 +27,10 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 2、fees:调用合约交易时的手续费, >= 1000000 sawi(0.01 wicc)
 3、同一笔交易在确认之前无法重复提交（BPS = 0.1）。 建议通过增加随机手续费来解决批量启动交易的问题。
 4、assetSymbol: 资产符号，发布成功无法再修改(1-7位大写字母)
-5、ownerAddress: 资产拥有者
+ownerRegid: 资产拥有者
 6、assetName: 资产名称
 7、totalSupply: 资产总发行量
-8、minTable: 资产是否可以增发
+8、modifiAble: 资产是否可以增发
 9、feesCoinSymbol: 小费类型(WICC/WUSD)
 */
 
@@ -39,10 +39,10 @@ var wallet = new Wallet("Y9wDyMys64KVhqwAVxbAB4aYDNVQ4HpRhQ7FLWFC3MhNNXz4JHot")
 
 var assetData = {
   assetSymbol: "STOKENN",   //asset Symbol Capital letter A-Z 6-7 digits [A_Z]
-  ownerAddress: "0-1",  //asset owner
+  ownerRegid: "0-1",  //asset owner
   assetName: "SS Token",  //asset token name
   totalSupply: 10000000000000000,// total Supply *10^8
-  minTable: false    //Whether to increase the number
+  modifiAble: false    //Whether to increase the number
 }
 
 //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result

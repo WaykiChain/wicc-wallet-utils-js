@@ -187,7 +187,7 @@ dist/wicc-wallet-lib-2.0.js
 ```
 ## Examples
 
-Run all the Examples:
+Run all the Demos:
 
 ```sh
 $ npm run test
