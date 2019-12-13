@@ -48,7 +48,7 @@ var walletManager = new WalletManager(networkType)
 #### Instance Methods
 - **randomMnemonicCodes**
 
-    Randomly generate a mnemonic
+    Generate a mnemonic randomly
 ```javascript
 const lang = "ENGLISH" // or CHINESE
 const mnemonics = walletManager.randomMnemonicCodes(lang) 
