@@ -8,11 +8,11 @@ publicKey can get from "getaccountinfo" cmd if the account have registered
 */
 var delegateData = [ // array,  item is object data of delegate
   {
-    srcRegId: "0369e834a7e5708d4c94b098447fbead8213c679cf4a37b953bfed28af104239d3",
-    voteValue: 201
+    srcRegId: "0369e834a7e5708d4c94b098447fbead8213c679cf4a37b953bfed28af104239d3", // regid of whom to be delegated
+    voteValue: 201 // delegate amount
   },{
     srcRegId: "02dc40112e2e12106c749c5bee34b4037b2dff4cd300ee5a57948961a6c9441e27",
-    voteValue: 202
+    voteValue: 202 
   }
 ]
 

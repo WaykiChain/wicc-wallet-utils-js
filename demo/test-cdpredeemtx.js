@@ -12,7 +12,9 @@ note:
 4, cdpTxId: cdp transaction hash
 5, assetAmount: stake coin amount
 6, assetSymbol: stake asset symbol
-7, fee_symbol: fee type (WICC/WUSD)
+7, feeSymbol: fee type (WICC/WUSD)
+8, regid of the cdp creator
+9, sCoinsToRepay: stake redeem amount
 */
 /*
 构建cdp赎回的交易
@@ -21,10 +23,11 @@ note:
 2、fees:发布合约时的手续费, >= 100000 sawi(0.001 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、cdpTxId:cdp交易hash
-5、scoins_to_repay:销毁的wusd数量
+5、sCoinsToRepay:销毁的wusd数量
 6、assetAmount:赎回的数量
 7、assetSymbol: 赎回币种类型
-8、fee_symbol:小费类型（WICC/WUSD）
+8、feeSymbol:小费类型（WICC/WUSD）
+9、srcRegId: 创建者的regid
 */
 var assetSymbol = "WICC"
 var assetAmount = 100000000

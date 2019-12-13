@@ -10,7 +10,7 @@ note:
 2, fees: handling fee when deploying a smart contract, >= 100000 sawi (0.001 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4, orderId:pending trading hash
-5, fee_symbol: fee type (WICC/WUSD)
+5, feeSymbol: fee type (WICC/WUSD)
 */
 /*
 构建取消交易的交易单
@@ -19,7 +19,7 @@ note:
 2、fees:发布合约时的手续费, >= 10000 sawi(0.0001 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、orderId:挂单的交易hash
-5, fee_symbol: 小费类型(WICC/WUSD)
+5, feeSymbol: 小费类型(WICC/WUSD)
 */
 var dexCancelTxinfo = {
   nTxType: 88,

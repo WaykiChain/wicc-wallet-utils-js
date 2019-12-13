@@ -22,7 +22,7 @@ var dexSellLimitTxinfo = {
     nTxType: 85,
     nValidHeight: 602371,
     fees: 10000,
-    srcRegId: '0-1',
+    srcRegId: '0-1',// regid of the seller 
     feeSymbol: "WICC",
     coinSymbol: "WUSD",
     assetSymbol:"WICC",

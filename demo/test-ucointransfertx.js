@@ -11,9 +11,10 @@ note:
 2, fees: handling fee when deploying a smart contract, >= 1000000 sawi (0.01 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4, srcRegId: the regid of the transferor
-5, value: transfer amount
-6, coinType: currency type
-7, feesCoinType: fees type
+5, transferAmount: transfer amount
+6, coinSymbol: currency type
+7, feeSymbol: fees type
+8, destAddress: receiver‘s address
 */
 /*
 构建转账交易的交易单
@@ -22,19 +23,20 @@ note:
 2、fees:发布合约时的手续费, >= 1000000 sawi(0.01 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、srcRegId:转账者的regid
-5、value:转账金额
-6、coinType:币种类型
-7、feesCoinType:小费类型
+5、transferAmount:转账金额
+6、coinSymbol:币种类型
+7、feeSymbol:小费类型,
+8、收款地址
 */
 
-var coinType = "WUSD"
+var coinSymbol = "WUSD"
 var destAddr = 'wh82HNEDZkZP2eVAS5t7dDxmJWqyx9gr65'
-var value = 32432
+var transferAmount = 32432
 var destArr = [{
-   "coinSymbol":coinType,
-   "destAddress":destAddr,
-   "transferAmount":value
- }
+  "coinSymbol": coinSymbol,
+  "destAddress": destAddr,
+  "transferAmount": transferAmount
+}
 ]
 var cointransferTxinfo = {
   nTxType: 11,
@@ -42,7 +44,7 @@ var cointransferTxinfo = {
   fees: 10000,
   srcRegId: '',
   dests: destArr,
-  memo: "test transfer",
+  memo: "test transfer",// remark
   feeSymbol: "WICC"
 };
 

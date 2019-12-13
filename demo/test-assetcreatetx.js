@@ -15,7 +15,7 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 6. tokeName: asset name
 7. totalSupply: total asset circulation
 8. modifiAble: Whether the asset can be issued 
-9、feesCoinSymbol: fee type(WICC/WUSD)
+9、feeSymbol: fee type(WICC/WUSD)
 */
 /*
 构建发布资产交易

@@ -22,10 +22,10 @@ var commonTxinfo = {
   nTxType: 3,
   nValidHeight: 34550,
   fees: 10000000,
-  srcRegId: '0-1',
-  destAddr: 'wWTStcDL4gma6kPziyHhFGAP6xUzKpA5if',
+  srcRegId: '0-1',// regid of sender
+  destAddr: 'wWTStcDL4gma6kPziyHhFGAP6xUzKpA5if',// address of receiver
   amount: 1100000000000,
-  memo: "test transfer"
+  memo: "test transfer"// remark
 };
 
 var transaction = new WaykiTransaction(commonTxinfo, wallet)

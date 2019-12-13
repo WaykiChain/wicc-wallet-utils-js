@@ -23,7 +23,7 @@ var invokeAppInfo = {
   nTxType: 15,
   nValidHeight: 34400,    // create height
   srcRegId: '0-1',    // sender's regId
-  appId: "24555-1",  // app regId
+  appId: "24555-1",  // contract regId
   feeSymbol: "WICC",
   coinSymbol: "WUSD",
   fees: 1000000,         // fees pay for miner

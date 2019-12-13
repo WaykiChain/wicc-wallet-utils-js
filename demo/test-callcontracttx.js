@@ -22,7 +22,7 @@ var regAppInfo = {
   nTxType: 4,
   nValidHeight: 34400,    // create height
   srcRegId: '',    // sender's regId
-  appId: "24555-1",  // app regId
+  appId: "24555-1",  // contact regId
   fees: 1000000,         // fees pay for miner
   amount: 8,              // amount of WICC to be sent to the app account
   vContract: "f018"      // contract method, hex format string
