@@ -1,4 +1,4 @@
-# wicc-wallet-utils-js
+# wicc-wallet-utils-js v2.0
 Official JavaScript library that provides WICC Offline Wallet capabilities
 
 # Installation
