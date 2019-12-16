@@ -13,7 +13,7 @@ var baasClient = new BaasClient("https://baas-test.wiccdev.org/v2/api")
     ownerRegid: "0-1",  //asset owner
     assetName: "SS Token",  //asset token name
     totalSupply: 10000000000000000,// total Supply *10^8
-    modifiAble: false    //Whether to increase the number
+    modifiAble: false    //whether to allow modify
   }
 
   //note: change "nValidHeight" to current valid height, so that you can execute “submittx” ok after get the result
