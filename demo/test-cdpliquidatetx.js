@@ -20,7 +20,7 @@ note:
 构建cdp清算交易
 注意：
 1、nValidHeight:创建签名时的区块高度,与提交广播交易时的高度差必须 <=250
-2、fees:发布合约时的手续费, >= 10000 sawi(0.0001 wicc)
+2、fees:发布合约时的手续费, >= 1000000 sawi(0.01 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、srcRegId:cdp创建者的regid
 5、cdpTxId:该cdp的创建的交易hash
@@ -32,7 +32,7 @@ var cdpliquidateTxinfo = {
   nTxType: 23,
   nValidHeight: 501,
   srcRegId: "",
-  fees: 100000,
+  fees: 1000000,
   feeSymbol: "WICC",
   cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
   sCoinsToLiquidate: 2000000000000,

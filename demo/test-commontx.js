@@ -8,7 +8,7 @@ var wallet = new Wallet("Y6J4aK6Wcs4A3Ex4HXdfjJ6ZsHpNZfjaS4B9w7xqEnmFEYMqQd13")
 Build a transaction for common transfer
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when deploying a smart contract, >= 100000000 sawi (0.1 wicc)
+2, fees: handling fee when deploying a smart contract, >= 10000000 sawi (0.1 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 */
 /*

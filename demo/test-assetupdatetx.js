@@ -9,7 +9,7 @@ In addition to updating assets miners fee, we need additional deduction 110WICC
 
 note:
 1, nValidHeight: the height of the block when creating the signature, and the height difference when submitting the broadcast transaction must be <=250
-2, fees: handling fee when calling smart contract , >= 1000000 sawi (0.01 wicc)
+2, fees: >= 1000000 sawi (0.01 wicc)
 3. The same transaction cannot be submitted repeatedly before it is confirmed(BPS=0.1). It is recommended to solve the problem of batch initiated transaction by adding random handling fee.
 4. assetSymbol: Asset symbols, publishing success can not be modified
 5、feeSymbol: fee type(WICC/WUSD)
@@ -22,7 +22,7 @@ note:
 
 注意：
 1、nValidHeight:创建签名时的区块高度,与提交广播交易时的高度差必须 <=250
-2、fees:调用合约交易时的手续费, >= 1000000 sawi(0.01 wicc)
+2、fees:手续费, >= 1000000 sawi(0.01 wicc)
 3、同一笔交易在确认之前无法重复提交（BPS = 0.1）。 建议通过增加随机手续费来解决批量启动交易的问题。
 4、assetSymbol: 资产符号，发布成功无法再修改
 5、feeSymbol: 小费类型(WICC/WUSD)
@@ -46,7 +46,7 @@ var assetUpdateInfo = {
   updateData: assetUpdateData,
   feeSymbol: "WICC",
   assetSymbol: "LOLLLL",   //Symbol Capital letter A-Z 6-7 digits [A_Z]
-  fees: 11000000000, // fees pay for miner min 0.01 wicc +110wicc
+  fees: 11000000000 + 1000000, // fees pay for miner min 0.01 wicc +110wicc
 };
 
 var transaction = new WaykiTransaction(assetUpdateInfo, wallet)

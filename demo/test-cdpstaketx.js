@@ -20,7 +20,7 @@ note:
 构建cdp抵押交易
 注意：
 1、nValidHeight:创建签名时的区块高度,与提交广播交易时的高度差必须 <=250
-2、fees:发布合约时的手续费, >= 100000 sawi(0.001 wicc)
+2、fees:发布合约时的手续费, >= 1000000 sawi(0.01 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、cdpTxId:cdp创建生成的交易hash
 5、feeSymbol:小费类型（WICC/WUSD）
@@ -36,7 +36,7 @@ var cdpStakeTxinfo = {
   nTxType: 21,
   nValidHeight: 25,
   srcRegId: "0-1",// sender's regid
-  fees: 100000,
+  fees: 1000000,
   feeSymbol: "WICC",
   cdpTxId: "0b9734e5db3cfa38e76bb273dba4f65a210cc76ca2cf739f3c131d0b24ff89c1",
   assetMap: map,

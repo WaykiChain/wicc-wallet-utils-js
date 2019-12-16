@@ -22,7 +22,7 @@ var delegateInfo = {
   nValidHeight: 28128, // create height
   userId: "", // sender's regId
   voteLists: delegateData,
-  fees: 1001, // fees pay for miner
+  fees: 1000000, // fees pay for miner, >= 1000000 sawi (0.01 wicc)
 };
 
 var transaction = new WaykiTransaction(delegateInfo, wallet)

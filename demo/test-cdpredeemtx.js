@@ -20,7 +20,7 @@ note:
 构建cdp赎回的交易
 注意：
 1、nValidHeight:创建签名时的区块高度,与提交广播交易时的高度差必须 <=250
-2、fees:发布合约时的手续费, >= 100000 sawi(0.001 wicc)
+2、fees:发布合约时的手续费, >= 1000000 sawi(0.01 wicc)
 3、相同的交易在未被确认前不能重复提交(BPS=0.1),建议采用添加随机手续费方式解决批量发起交易问题
 4、cdpTxId:cdp交易hash
 5、sCoinsToRepay:销毁的wusd数量
@@ -36,7 +36,7 @@ var cdpRedeemTxinfo = {
   nTxType: 22,
   nValidHeight: 78,
   srcRegId: "",
-  fees: 100000,
+  fees: 1000000,
   cdpTxId: "009c0e665acdd9e8ae754f9a51337b85bb8996980a93d6175b61edccd3cdc144",
   feeSymbol: "WICC",
   sCoinsToRepay: 0,
