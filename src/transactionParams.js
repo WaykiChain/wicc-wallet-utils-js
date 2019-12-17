@@ -138,7 +138,9 @@ var transactionParams = function (arg, wallet) {
                 txParams.txUid = arg.srcRegId
                 txParams.fees = arg.fees
                 txParams.fee_symbol = arg.feeSymbol
-                txParams.cdpTxId = arg.cdpTxId
+                if (arg.cdpTxId) {
+                    txParams.cdpTxId = arg.cdpTxId
+                }
                 txParams.assetMap = arg.assetMap
                 txParams.scoin_symbol = arg.sCoinSymbol
                 txParams.scoinsToMint = arg.sCoinToMint
