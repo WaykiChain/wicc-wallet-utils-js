@@ -10,6 +10,9 @@ class WalletManager {
     randomMnemonicCodes(language = "ENGLISH") {
         return this.wiccApi.createAllCoinMnemonicCode(language)
     }
+    switchMnemonicCodes(mnemonic, targetLanguage) {
+        return this.wiccApi.switchMnemonicCode(mnemonic, targetLanguage)
+    }
     createWallet(mnemonic) {
         if (!this.wiccApi.checkMnemonicCode(mnemonic)) {
             throw "Invalid mnemonic"

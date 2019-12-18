@@ -124,6 +124,33 @@ WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
   return strCode
 }
 
+WiccApi.prototype.switchMnemonicCode = function (mnemonic, targetLanguage) {
+  if (!targetLanguage) return mnemonic
+  var lang = ""
+  var ret = []
+  var indexArr = []
+  var dicts = Object.keys(Mnemonic.Words);
+  if (dicts.indexOf(targetLanguage) === -1) {
+    throw `${targetLanguage} is not supported`
+  }
+  for (var i = 0; i < dicts.length; i++) {
+    var key = dicts[i];
+    if (Mnemonic._belongsToWordlist(mnemonic, Mnemonic.Words[key])) {
+      lang = key
+      break
+    }
+  }
+  if (lang === targetLanguage) return mnemonic;
+  var wordArr = mnemonic.split(" ")
+  indexArr = wordArr.map(item => {
+    return Mnemonic.Words[lang].indexOf(item)
+  })
+  indexArr.map(item => {
+    ret.push(Mnemonic.Words[targetLanguage][item])
+  })
+  return ret.join(" ")
+}
+
 WiccApi.prototype.checkMnemonicCode = function (mnemonic) {
   return Mnemonic.isValid(mnemonic)
 }
@@ -133,6 +160,7 @@ WiccApi.prototype.validateAddress = function (address) {
 }
 
 WiccApi.prototype.getPriKeyFromMnemonicCode = function (mnemonic) {
+  mnemonic = this.switchMnemonicCode(mnemonic, "ENGLISH")
   var code = new Mnemonic(mnemonic)
   var xpriv = code.toHDPrivateKey(null, this.network);
   var p = xpriv.deriveChild(this.getBIP44Path());
@@ -140,6 +168,7 @@ WiccApi.prototype.getPriKeyFromMnemonicCode = function (mnemonic) {
 }
 
 WiccApi.prototype.getAddressFromMnemonicCode = function (mnemonic) {
+  mnemonic = this.switchMnemonicCode(mnemonic, "ENGLISH")
   var code = new Mnemonic(mnemonic)
   var xpriv = code.toHDPrivateKey(null, this.network);
   var p = xpriv.deriveChild(this.getBIP44Path());
@@ -147,6 +176,7 @@ WiccApi.prototype.getAddressFromMnemonicCode = function (mnemonic) {
 }
 
 WiccApi.prototype.createWallet = function (mnemonic, password) {
+  mnemonic = this.switchMnemonicCode(mnemonic, "ENGLISH")
   var salt = Random.getRandomBuffer(8)
 
   var passbuf = new buffer.Buffer(password, 'utf8');

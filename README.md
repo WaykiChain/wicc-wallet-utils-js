@@ -54,6 +54,18 @@ const lang = "ENGLISH" // or CHINESE
 const mnemonics = walletManager.randomMnemonicCodes(lang) 
 //mnemonics = "clinic dose kingdom fetch away industry squirrel cheese purchase mean slide mixed"
 ```
+- **switchMnemonicCodes**
+
+    Switching from mnemonics in the current language to mnemonics in another language, both can generate the same wallet
+```javascript
+var mnemonics1 = walletManager.randomMnemonicCodes("ENGLISH") 
+var wallet1 = walletManager.importWalletFromMnemonic(mnemonics)
+
+var mnemonics2 = walletManager.switchMnemonicCodes(mnemonics1, "CHINESE") 
+var wallet2 = walletManager.importWalletFromMnemonic(mnemonics2)
+
+wallet1.address === wallet2.address
+```
 - **createWallet**
 
     Create a blockchain wallet from valid mnemonics, returns a instance object of **Wallet**

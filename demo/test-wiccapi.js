@@ -12,6 +12,8 @@ var wiccApi = new WiccApi(arg)
 var strMne = wiccApi.createAllCoinMnemonicCode()
 console.log('New MnemonicCode='+ strMne)
 
+var switchCode = wiccApi.switchMnemonicCode(strMne, "CHINESE")
+console.log("switchCode=", switchCode)
 //Check if the mnemonic is valid
 //检查助记词是否有效
 var ret = wiccApi.checkMnemonicCode(strMne)
@@ -21,6 +23,9 @@ console.log('Check MnemonicCode Result=' + ret)
 //根据助记词获取对应的WIF格式私钥
 var privateKey1 = wiccApi.getPriKeyFromMnemonicCode(strMne)
 console.log('privateKey1='+privateKey1)
+
+var privateKey3 = wiccApi.getPriKeyFromMnemonicCode(switchCode)
+console.log('privateKey3='+privateKey3)
 
 //Create a wallet based on the mnemonic, '12345678' is the wallet password
 //根据助记词创建钱包,'12345678'为钱包密码
