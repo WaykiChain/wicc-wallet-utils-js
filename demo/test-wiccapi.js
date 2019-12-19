@@ -14,6 +14,11 @@ console.log('New MnemonicCode='+ strMne)
 
 var switchCode = wiccApi.switchMnemonicCode(strMne, "CHINESE")
 console.log("switchCode=", switchCode)
+
+//获取助记词语言
+var lang = wiccApi.getMnemonicCodeLanguage(switchCode)
+console.log("language is", lang)
+
 //Check if the mnemonic is valid
 //检查助记词是否有效
 var ret = wiccApi.checkMnemonicCode(strMne)

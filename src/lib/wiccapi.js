@@ -125,6 +125,19 @@ WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
   return strCode
 }
 
+WiccApi.prototype.getMnemonicCodeLanguage = function (mnemonic) {
+  let lang
+  var dicts = Object.keys(Mnemonic.Words);
+  for (var i = 0; i < dicts.length; i++) {
+    var key = dicts[i];
+    if (Mnemonic._belongsToWordlist(mnemonic, Mnemonic.Words[key])) {
+      lang = key
+      break
+    }
+  }
+  return lang
+}
+
 WiccApi.prototype.switchMnemonicCode = function (mnemonic, targetLanguage) {
   if (!targetLanguage) return mnemonic
   var lang = ""
