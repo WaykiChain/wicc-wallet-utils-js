@@ -118,6 +118,7 @@ WiccApi.prototype.getBIP44Path = function () {
 }
 
 WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
+  language = language || "ENGLISH"
   var code = new Mnemonic(Mnemonic.Words[language])
   var strCode = code.toString()
 
