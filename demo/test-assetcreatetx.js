@@ -14,7 +14,7 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 5. ownerRegid: asset owner
 6. tokeName: asset name
 7. totalSupply: total asset circulation
-8. modifiAble: Whether the asset can be issued 
+8. modifiAble: Whether the asset can be updated 
 9、feeSymbol: fee type(WICC/WUSD)
 */
 /*
@@ -30,7 +30,7 @@ In addition to publishing assets miners fee, we need additional deduction 550WIC
 ownerRegid: 资产拥有者
 6、assetName: 资产名称
 7、totalSupply: 资产总发行量
-8、modifiAble: 资产是否可以增发
+8、modifiAble: 资产是否可以更新
 9、feesCoinSymbol: 小费类型(WICC/WUSD)
 */
 
