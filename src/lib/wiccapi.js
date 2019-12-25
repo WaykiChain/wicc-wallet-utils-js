@@ -114,7 +114,7 @@ WiccApi._fromObject = function _fromObject(data) {
 };
 
 WiccApi.prototype.getBIP44Path = function () {
-  return this.network === "testnet" ? "m/44'/999999'/0'/0/0" : "m/44'/99999'/0'/0/0"
+  return this.network === "testnet" ? "m/44'/99999'/0'/0/0" : "m/44'/99999'/0'/0/0"
 }
 
 WiccApi.prototype.createAllCoinMnemonicCode = function (language) {
