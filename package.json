@@ -54,5 +54,16 @@
     "@babel/core": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WaykiChain/wicc-wallet-utils-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WaykiChain/wicc-wallet-utils-js/issues"
+  },
+  "homepage": "https://github.com/WaykiChain/wicc-wallet-utils-js#readme"
 }
