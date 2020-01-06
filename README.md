@@ -4,7 +4,7 @@ Official JavaScript library that provides WICC Offline Wallet capabilities
 # Installation
 ### CDN
 ```html
-<script src="cnd_url"></script>
+<script src="https://sw91.net/devops/wicc-wallet-utils/wicc-wallet-lib-2.0.0.js"></script>
 ```
 ### NPM
 ```
