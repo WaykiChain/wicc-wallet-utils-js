@@ -253,69 +253,6 @@ WiccApi.prototype.createWallet = function (mnemonic, password) {
 
 }
 
-WiccApi.prototype.createWalletNonce = function (mnemonic, password, nonce) {
-  var salt = Random.getRandomBuffer(8)
-
-  var passbuf = new buffer.Buffer(password, 'utf8');
-  var hashpwd = Hash.sha256(passbuf)
-
-  var code = new Mnemonic(mnemonic)
-  var strCode = code.toString()
-
-  var seed = code.toSeed()
-
-  var xpriv = code.toHDPrivateKey(null, this.network);
-  var p = xpriv.deriveChild(`m/44/99999/0/0/${nonce}`);
-  var address = p.privateKey.toAddress()
-  var strAddress = address.toString()
-
-  var d = new Date()
-  var creationTimeSeconds = parseInt(d.getTime() / 1000)
-
-
-  var data = scrypt(password, salt, 32768, 8, 1, 64)
-
-  var key = data.slice(0, 32)
-  var iv = data.slice(32, 48)
-
-  var hexKey = key.toString('hex')
-  var cryKey = CryptoJS.enc.Hex.parse(hexKey)
-
-  var hexIv = iv.toString('hex')
-  var cryIv = CryptoJS.enc.Hex.parse(hexIv)
-
-  var strSeed = seed.toString('hex')
-  var encryptedseed = aes.encrypt(cryKey, cryIv, strSeed)
-  var encryptedMne = aes.encrypt(cryKey, cryIv, strCode)
-
-  var encSeedData = {
-    encryptedBytes: encryptedseed,
-    iv: iv
-  }
-
-  var encMneData = {
-    encryptedBytes: encryptedMne,
-    iv: iv
-  }
-
-  var seedinfo = {
-    encMneData: encMneData,
-    encSeedData: encSeedData,
-    creationTimeSeconds: creationTimeSeconds,
-    hashPwd: hashpwd,
-    salt: salt
-  }
-
-  var wallinfo = {
-    seedinfo: seedinfo,
-    symbol: 'WICC',
-    address: strAddress
-  }
-
-  return wallinfo
-
-}
-
 WiccApi.prototype.getPriKeyFromSeed = function (seedinfo, password) {
 
   var passbuf = new buffer.Buffer(password, 'utf8');
