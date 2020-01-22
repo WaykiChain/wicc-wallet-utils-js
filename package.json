@@ -43,7 +43,7 @@
     "decimal": "0.0.2",
     "elliptic": "=6.4.0",
     "inherits": "=2.0.1",
-    "lodash": "=4.17.5",
+    "lodash": "=4.17.13",
     "scrypt-js": "^2.0.3",
     "scryptsy": "^2.0.0",
     "superagent": "^5.1.2",
