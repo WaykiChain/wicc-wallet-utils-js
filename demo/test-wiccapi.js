@@ -43,6 +43,12 @@ console.log(walletInfo)
 var privateKey2 = wiccApi.getPriKeyFromSeed(walletInfo.seedinfo, '12345678')
 console.log('privateKey2='+privateKey2)
 
+//Get WIF HD privatekey from mnemoniccode
+//根据助记词获取对应的WIF HD格式私钥
+var addressIndex=1
+var hdPrivateKey = wiccApi.getHDPriKeyFromSeed(walletInfo.seedinfo, '12345678',addressIndex)
+console.log('hdPrivateKey='+hdPrivateKey)
+
 //Get mnemonics based on wallet seeds
 //根据钱包种子获取助记词
 var Mne = wiccApi.getMnemonicCodeFromSeed(walletInfo.seedinfo, '12345678')
