@@ -41,10 +41,10 @@ var destArr = [{
 var cointransferTxinfo = {
   nTxType: 11,
   nValidHeight: 602371,
-  fees: 10000,
-  srcRegId: '',
+  fees: 100000,
+  srcRegId: '', //When srcRegId is available, use RegID as priority since it cost 0.001 WICC trx fees otherwise it'll be 0.002 WICC
   dests: destArr,
-  memo: "test transfer",// remark
+  memo: "test transfer",// remark, optional field
   feeSymbol: "WICC"
 };
 

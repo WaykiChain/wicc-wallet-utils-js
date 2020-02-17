@@ -253,26 +253,15 @@ WiccApi.prototype.createWallet = function (mnemonic, password) {
 
 }
 
-WiccApi.prototype.createWalletNonce = function (mnemonic, password, nonce) {
-  var salt = Random.getRandomBuffer(8)
+WiccApi.prototype.getHDPriKeyFromSeed = function (seedinfo, password,addressIndex) {
 
   var passbuf = new buffer.Buffer(password, 'utf8');
   var hashpwd = Hash.sha256(passbuf)
+  if (!CustomBuffer.equal(hashpwd, seedinfo.hashPwd)) {
+    return null
+  }
 
-  var code = new Mnemonic(mnemonic)
-  var strCode = code.toString()
-
-  var seed = code.toSeed()
-
-  var xpriv = code.toHDPrivateKey(null, this.network);
-  var p = xpriv.deriveChild(`m/44/99999/0/0/${nonce}`);
-  var address = p.privateKey.toAddress()
-  var strAddress = address.toString()
-
-  var d = new Date()
-  var creationTimeSeconds = parseInt(d.getTime() / 1000)
-
-
+  var salt = seedinfo.salt
   var data = scrypt(password, salt, 32768, 8, 1, 64)
 
   var key = data.slice(0, 32)
@@ -284,36 +273,14 @@ WiccApi.prototype.createWalletNonce = function (mnemonic, password, nonce) {
   var hexIv = iv.toString('hex')
   var cryIv = CryptoJS.enc.Hex.parse(hexIv)
 
-  var strSeed = seed.toString('hex')
-  var encryptedseed = aes.encrypt(cryKey, cryIv, strSeed)
-  var encryptedMne = aes.encrypt(cryKey, cryIv, strCode)
+  var base64seed = seedinfo.encSeedData.encryptedBytes
+  var strseed = aes.decrypt(cryKey, cryIv, base64seed)
+  var seed = new Buffer(strseed, 'hex')
 
-  var encSeedData = {
-    encryptedBytes: encryptedseed,
-    iv: iv
-  }
+  var xpriv = HDPrivateKey.fromSeed(seed, this.network);
+  var p = xpriv.deriveChild("m/44'/99999'/0'/0/"+addressIndex);
 
-  var encMneData = {
-    encryptedBytes: encryptedMne,
-    iv: iv
-  }
-
-  var seedinfo = {
-    encMneData: encMneData,
-    encSeedData: encSeedData,
-    creationTimeSeconds: creationTimeSeconds,
-    hashPwd: hashpwd,
-    salt: salt
-  }
-
-  var wallinfo = {
-    seedinfo: seedinfo,
-    symbol: 'WICC',
-    address: strAddress
-  }
-
-  return wallinfo
-
+  return p.privateKey.toWIF()
 }
 
 WiccApi.prototype.getPriKeyFromSeed = function (seedinfo, password) {
